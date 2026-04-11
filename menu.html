@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menu | Smokin' LeRoy's Mobile Kitchen LLC</title>
+
   <style>
     :root {
       --red: #d62828;
@@ -45,18 +46,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
       flex-wrap: wrap;
+      gap: 12px;
     }
 
     .brand {
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-weight: 800;
     }
 
     .nav-links {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
@@ -68,13 +69,13 @@
     }
 
     .hero {
-      padding: 56px 0 24px;
+      padding: 50px 0 20px;
     }
 
-    .hero-card, .menu-card {
+    .hero-card {
       background: var(--white);
       border-radius: var(--radius);
-      padding: 30px;
+      padding: 28px;
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
     }
@@ -82,42 +83,45 @@
     h1, h2 { margin-top: 0; }
 
     h1 {
-      font-size: clamp(2rem, 4.5vw, 3rem);
-      margin-bottom: 12px;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
 
     .subtitle {
       color: var(--muted);
-      line-height: 1.7;
-      font-size: 1.05rem;
+      line-height: 1.6;
     }
 
     .menu-wrap {
       padding-bottom: 50px;
     }
 
+    .menu-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 22px;
-      margin-top: 24px;
+      margin-top: 20px;
     }
 
     .menu-section {
       background: #fff8ef;
       border: 1px solid #f0dec1;
       border-radius: 18px;
-      padding: 22px;
-    }
-
-    .menu-section h2 {
-      margin-bottom: 14px;
+      padding: 20px;
     }
 
     .menu-item {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       padding: 12px 0;
       border-bottom: 1px solid rgba(0,0,0,0.08);
     }
@@ -128,6 +132,12 @@
 
     .item-name {
       font-weight: 700;
+    }
+
+    .item-desc {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
     .item-price {
@@ -149,108 +159,201 @@
     }
   </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <div class="brand">Smokin' LeRoy's Mobile Kitchen LLC</div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="contact.html">Contact & Catering</a>
-      </nav>
+
+<header class="topbar">
+  <div class="container nav">
+    <div class="brand">Smokin' LeRoy's Mobile Kitchen LLC</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="contact.html">Contact & Catering</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-card">
+      <h1>Our Menu</h1>
+      <p class="subtitle">Fresh, smoked, and made-to-order favorites.</p>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="hero-card">
-          <h1>Our Menu</h1>
-          <p class="subtitle">
-            Update these menu items with the truck’s actual food and pricing. This layout is ready
-            for breakfast, lunch, sides, drinks, and specials.
-          </p>
-        </div>
-      </div>
-    </section>
+<section class="menu-wrap">
+  <div class="container">
+    <div class="menu-card">
 
-    <section class="menu-wrap">
-      <div class="container">
-        <div class="menu-card">
-          <div class="menu-grid">
-            <div class="menu-section">
-              <h2>Breakfast</h2>
-              <div class="menu-item">
-                <div class="item-name">Breakfast Sandwich</div>
-                <div class="item-price">$6.00</div>
-              </div>
-              <div class="menu-item">
-                <div class="item-name">Breakfast Burrito</div>
-                <div class="item-price">$8.00</div>
-              </div>
-              <div class="menu-item">
-                <div class="item-name">Loaded Breakfast Plate</div>
-                <div class="item-price">$10.00</div>
-              </div>
+      <div class="menu-grid">
+
+        <!-- BREAKFAST -->
+        <div class="menu-section">
+          <h2>Breakfast</h2>
+
+          <div class="menu-item">
+            <div>
+              <div class="item-name">Southern Gravy Biscuit</div>
+              <div class="item-desc">Sausage gravy smothered on our honey butter biscuit with sausage patties.</div>
             </div>
+            <div class="item-price">$7</div>
+          </div>
 
-            <div class="menu-section">
-              <h2>Lunch</h2>
-              <div class="menu-item">
-                <div class="item-name">Smoked Chicken Plate</div>
-                <div class="item-price">$12.00</div>
-              </div>
-              <div class="menu-item">
-                <div class="item-name">Greek Chicken Wrap</div>
-                <div class="item-price">$10.00</div>
-              </div>
-              <div class="menu-item">
-                <div class="item-name">BBQ Sandwich Combo</div>
-                <div class="item-price">$11.00</div>
-              </div>
+          <div class="menu-item">
+            <div>
+              <div class="item-name">Big Daddys Egg Sandwich</div>
+              <div class="item-desc">Choice of bacon, smoked ham, or smoked baloney with 2 fried eggs and cheese piled high on Texas toast with mayo.</div>
             </div>
+            <div class="item-price">$9</div>
+          </div>
 
-            <div class="menu-section">
-              <h2>Sides</h2>
-              <div class="menu-item">
-                <div class="item-name">Fries</div>
-                <div class="item-price">$3.00</div>
-              </div>
-              <div class="menu-item">
-                <div class="item-name">Mac & Cheese</div>
-                <div class="item-price">$4.00</div>
-              </div>
-              <div class="menu-item">
-                <div class="item-name">Baked Beans</div>
-                <div class="item-price">$3.50</div>
-              </div>
+          <div class="menu-item">
+            <div>
+              <div class="item-name">Everything Bagel Sandwich</div>
+              <div class="item-desc">Egg, cheese, smoked ham or bacon, avocado.</div>
             </div>
-
-            <div class="menu-section">
-              <h2>Drinks & Specials</h2>
-              <div class="menu-item">
-                <div class="item-name">Sweet Tea</div>
-                <div class="item-price">$2.00</div>
-              </div>
-              <div class="menu-item">
-                <div class="item-name">Lemonade</div>
-                <div class="item-price">$2.50</div>
-              </div>
-              <div class="menu-item">
-                <div class="item-name">Daily Special</div>
-                <div class="item-price">Ask Today</div>
-              </div>
-            </div>
+            <div class="item-price">$9</div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container">
-      Smokin' LeRoy's Mobile Kitchen LLC
+        <!-- SANDWICHES -->
+        <div class="menu-section">
+          <h2>Sandwiches</h2>
+
+          <div class="menu-item">
+            <div>
+              <div class="item-name">Fat Boy Sandwich</div>
+              <div class="item-desc">Smoked baloney, smoked ham, cheese, mayo, and mustard.</div>
+            </div>
+            <div class="item-price">$14</div>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <div class="item-name">Porkragious</div>
+              <div class="item-desc">BBQ pork and smoked ham with mild sauce and choice of slaw.</div>
+            </div>
+            <div class="item-price">$14</div>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <div class="item-name">Jumbo BBQ Sandwich or Smoked Chicken</div>
+              <div class="item-desc">Mild sauce and slaw.</div>
+            </div>
+            <div class="item-price">$12</div>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <div class="item-name">Big Smoked Ham and Cheese</div>
+              <div class="item-desc">With mayo and mustard.</div>
+            </div>
+            <div class="item-price">$12</div>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <div class="item-name">Smoked Baloney</div>
+              <div class="item-desc">BBQ sauce and your choice of slaw.</div>
+            </div>
+            <div class="item-price">$10</div>
+          </div>
+        </div>
+
+        <!-- PLATES -->
+        <div class="menu-section">
+          <h2>Plates & Specials</h2>
+
+          <div class="menu-item">
+            <div>
+              <div class="item-name">BBQ Spaghetti</div>
+              <div class="item-desc">Pork.</div>
+            </div>
+            <div class="item-price">$10</div>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <div class="item-name">Nachos or BBQ Nachos</div>
+              <div class="item-desc">Pork or chicken.</div>
+            </div>
+            <div class="item-price">$12 / $15</div>
+          </div>
+        </div>
+
+        <!-- SIDES -->
+        <div class="menu-section">
+          <h2>Sides</h2>
+
+          <div class="menu-item">
+            <div>
+              <div class="item-name">Smoked Mac and Cheese</div>
+              <div class="item-desc">Side</div>
+            </div>
+            <div class="item-price">$5</div>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <div class="item-name">Smoked Mac and Cheese (BBQ or Smoked Chicken)</div>
+              <div class="item-desc">Premium Side</div>
+            </div>
+            <div class="item-price">$12</div>
+          </div>
+        </div>
+
+        <!-- DESSERTS -->
+        <div class="menu-section">
+          <h2>Desserts</h2>
+
+          <div class="menu-item">
+            <div class="item-name">Banana Pudding</div>
+            <div class="item-price">$8</div>
+          </div>
+
+          <div class="menu-item">
+            <div class="item-name">Oreo Cheesecake Pudding</div>
+            <div class="item-price">$8</div>
+          </div>
+
+          <div class="menu-item">
+            <div class="item-name">Nutter Budder Pudding</div>
+            <div class="item-price">$8</div>
+          </div>
+        </div>
+
+        <!-- COMBO & DRINKS -->
+        <div class="menu-section">
+          <h2>Combos & Drinks</h2>
+
+          <div class="menu-item">
+            <div class="item-name">Make it a Combo!</div>
+            <div class="item-price">$6</div>
+          </div>
+
+          <div class="menu-item">
+            <div class="item-name">Soft Drinks and Water</div>
+            <div class="item-price">$2</div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
-  </footer>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    Smokin' LeRoy's Mobile Kitchen LLC
+  </div>
+</footer>
+
 </body>
 </html>
