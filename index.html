@@ -73,14 +73,17 @@
     }
 
     .nav-logo {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       object-fit: contain;
       border-radius: 14px;
       background: #ffffff;
-      padding: 8px;
+      padding: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.12);
       flex-shrink: 0;
+      opacity: 0;
+      transform: scale(0.92);
+      animation: logoReveal 0.8s ease-out forwards;
     }
 
     .nav-links {
@@ -117,11 +120,18 @@
       align-items: center;
     }
 
+    .hero-copy {
+      text-align: center;
+    }
+
     .hero-logo {
       width: 300px;
       max-width: 100%;
-      margin-bottom: 18px;
+      margin: 0 auto 18px;
       mix-blend-mode: multiply;
+      opacity: 0;
+      transform: scale(0.92);
+      animation: logoReveal 0.9s ease-out 0.15s forwards;
     }
 
     .badge {
@@ -171,6 +181,7 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 22px;
+      justify-content: center;
     }
 
     .socials a,
@@ -179,6 +190,7 @@
       border-radius: 999px;
       font-weight: 800;
       display: inline-block;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
     .socials a {
@@ -186,11 +198,18 @@
       color: white;
     }
 
+    .socials a:hover,
+    .hero-buttons a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+    }
+
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 18px;
+      justify-content: center;
     }
 
     .hero-buttons a:first-child {
@@ -316,6 +335,17 @@
       font-weight: 700;
     }
 
+    @keyframes logoReveal {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
     @media (max-width: 900px) {
       .hero-card,
       .owner-grid {
@@ -341,8 +371,8 @@
       }
 
       .nav-logo {
-        width: 72px;
-        height: 72px;
+        width: 88px;
+        height: 88px;
         padding: 6px;
       }
 
@@ -381,7 +411,7 @@
     <section class="hero">
       <div class="container">
         <div class="hero-card">
-          <div>
+          <div class="hero-copy">
             <img src="logo.png" alt="Smokin' LeRoy's Mobile Kitchen LLC Logo" class="hero-logo">
 
             <div class="badge">Breakfast • Lunch • Mobile Kitchen</div>
