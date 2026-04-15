@@ -1,1 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop | Smokin' LeRoy's Mobile Kitchen LLC</title>
+  <style>
+    :root {
+      --red: #c81d25;
+      --orange: #f77f00;
+      --yellow: #fcbf49;
+      --dark: #161616;
+      --light: #fffaf2;
+      --white: #ffffff;
+      --muted: #5f5f5f;
+      --border: rgba(0,0,0,0.10);
+      --shadow: 0 16px 34px rgba(0,0,0,0.12);
+      --radius: 24px;
+      --max: 1160px;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: linear-gradient(180deg, #fff7eb 0%, #fff1cf 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: linear-gradient(90deg, var(--red), var(--orange), var(--yellow));
+      color: white;
+      padding: 8px 0;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-logo {
+      width: 170px;
+      height: 170px;
+      object-fit: contain;
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      background: rgba(255,255,255,0.18);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(255,255,255,0.30);
+    }
+
+    .hero {
+      padding: 42px 0 22px;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #fff1d8;
+      color: #7c4300;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 3.5rem);
+      line-height: 1.02;
+      margin-bottom: 14px;
+    }
+
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .hero-buttons a,
+    .product-card .btn,
+    .contact-box a {
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      display: inline-block;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .hero-buttons a:hover,
+    .product-card .btn:hover,
+    .contact-box a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+    }
+
+    .hero-buttons a:first-child {
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      color: white;
+    }
+
+    .hero-buttons a:last-child {
+      background: #fff3dd;
+      border: 1px solid #efd4a2;
+    }
+
+    .hero-image-wrap {
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+      border: 1px solid #ead4ad;
+      background: #f5f5f5;
+      align-self: start;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      max-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .section {
+      padding: 18px 0;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .section-head {
+      margin-bottom: 16px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+      max-width: 780px;
+    }
+
+    .carousel-section + .carousel-section {
+      margin-top: 28px;
+    }
+
+    .carousel-title {
+      margin-bottom: 8px;
+    }
+
+    .carousel-subtext {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .carousel-wrap {
+      position: relative;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 8px;
+    }
+
+    .carousel::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .carousel::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.18);
+      border-radius: 999px;
+    }
+
+    .product-card {
+      min-width: 280px;
+      max-width: 280px;
+      background: #fff9ef;
+      border: 1px solid #eedfc5;
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #f1f1f1;
+    }
+
+    .product-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .product-content h3 {
+      margin-bottom: 0;
+    }
+
+    .product-content p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--red);
+    }
+
+    .product-card .btn {
+      background: var(--dark);
+      color: white;
+      margin-top: auto;
+      text-align: center;
+    }
+
+    .contact-box {
+      text-align: center;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0 auto 18px;
+    }
+
+    .contact-box a {
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      color: white;
+    }
+
+    .footer {
+      padding: 42px 0;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .hero-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 260px;
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .brand {
+        font-size: 1.05rem;
+      }
+
+      .nav-logo {
+        width: 100px;
+        height: 100px;
+      }
+
+      .hero-card,
+      .card {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .product-card {
+        min-width: 240px;
+        max-width: 240px;
+      }
+
+      .product-image {
+        height: 190px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.png" alt="Smokin' LeRoy's logo" class="nav-logo">
+        <span>Smokin' LeRoy's Mobile Kitchen LLC</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="contact.html">Contact & Catering</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-copy">
+            <div class="badge">Apparel • Seasonings • Marinades • Specialty Items</div>
+            <h1>Browse the Smokin' LeRoy's shop.</h1>
+            <p>
+              This shop page is built as a horizontal browse experience so customers can scroll
+              left to right through each category.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="#hats">Start Shopping</a>
+              <a href="index.html">Back to Home</a>
+            </div>
+          </div>
+
+          <div class="hero-image-wrap">
+            <img src="truck.jpg" alt="Smokin' LeRoy's food truck" class="hero-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <div class="section-head">
+            <h2>Shop Categories</h2>
+            <p>
+              Scroll each row from left to right to browse the different items.
+            </p>
+          </div>
+
+          <div class="carousel-section" id="hats">
+            <h2 class="carousel-title">Hats</h2>
+            <p class="carousel-subtext">3 slots</p>
+            <div class="carousel-wrap">
+              <div class="carousel">
+                <div class="product-card">
+                  <img src="hat-1.jpg" alt="Hat 1" class="product-image">
+                  <div class="product-content">
+                    <h3>Hat 1</h3>
+                    <div class="price">$22.00</div>
+                    <p>Featured Smokin' LeRoy's hat design.</p>
+                    <a href="contact.html" class="btn">Order This Item</a>
+                  </div>
+                </div>
+
+                <div class="product-card">
+                  <img src="hat-2.jpg" alt="Hat 2" class="product-image">
+                  <div class="product-content">
+                    <h3>Hat 2</h3>
+                    <div class="price">$22.00</div>
+                    <p>Alternate hat color or embroidered option.</p>
+                    <a href="contact.html" class="btn">Order This Item</a>
+                  </div>
+                </div>
+
+                <div class="product-card">
+                  <img src="hat-3.jpg" alt="Hat 3" class="product-image">
+                  <div class="product-content">
+                    <h3>Hat 3</h3>
+                    <div class="price">$22.00</div>
+                    <p>Third hat slot for another style or limited run.</p>
+                    <a href="contact.html" class="btn">Order This Item</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-section" id="shirts">
+            <h2 class="carousel-title">Shirts</h2>
+            <p class="carousel-subtext">3 slots</p>
+            <div class="carousel-wrap">
+              <div class="carousel">
+                <div class="product-card">
+                  <img src="shirt-1.jpg" alt="Shirt 1" class="product-image">
+                  <div class="product-content">
+                    <h3>Shirt 1</h3>
+                    <div class="price">$20.00</div>
+                    <p>Main branded t-shirt design.</p>
+                    <a href="contact.html" class="btn">Order This Item</a>
+                  </div>
+                </div>
+
+                <div class="product-card">
+                  <img src="shirt-2.jpg" alt="Shirt 2" class="product-image">
+                  <div class="product-content">
+                    <h3>Shirt 2</h3>
+                    <div class="price">$20.00</div>
+                    <p>Alternate shirt color or graphic option.</p>
+                    <a href="contact.html" class="btn">Order This Item</a>
+                  </div>
+                </div>
+
+                <div class="product-card">
+                  <img src="shirt-3.jpg" alt="Shirt 3" class="product-image">
+                  <div class="product-content">
+                    <h3>Shirt 3</h3>
+                    <div class="price">$20.00</div>
+                    <p>Third shirt slot for a special release.</p>
+                    <a href="contact.html" class="btn">Order This Item</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-section" id="hoodies">
+            <h2 class="carousel-title">Hoodies</h2>
+            <p class="carousel-subtext">3 slots</p>
+            <div class="carousel-wrap">
+              <div class="carousel">
+                <div class="product-card">
+                  <img src="hoodie-1.jpg" alt="Hoodie 1" class="product-image">
+                  <div class="product-content">
+                    <h3>Hoodie 1</h3>
+                    <div class="price">$35.00</div>
+                    <p>Primary Smokin' LeRoy's hoodie design.</p>
+                    <a href="contact.html" class="btn">Order This Item</a>
+                  </div>
+                </div>
+
+                <div class="product-card">
+                  <img src="hoodie-2.jpg" alt="Hoodie 2" class="product-image">
+                  <div class="product-content">
+                    <h3>Hoodie 2</h3>
+                    <div class="price">$35.00</div>
+                    <p>Alternate hoodie color or logo layout.</p>
+                    <a href="contact.html" class="btn">Order This Item</a>
+                  </div>
+                </div>
+
+                <div class="product-card">
+                  <img src="hoodie-3.jpg" alt="Hoodie 3" class="product-image">
+                  <div class="product-content">
+                    <h3>Hoodie 3</h3>
+                    <div class="price">$35.00</div>
+                    <p>Third hoodie slot for another option.</p>
+                    <a href="contact.html" class="btn">Order This Item</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-section" id="seasonings">
+            <h2 class="carousel-title">Seasonings</h2>
+            <p class="carousel-subtext">12 slots</p>
+            <div class="carousel-wrap">
+              <div class="carousel">
+                <div class="product-card"><img src="seasoning-1.jpg" alt="Seasoning 1" class="product-image"><div class="product-content"><h3>Seasoning 1</h3><div class="price">$8.00</div><p>Seasoning slot 1.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="seasoning-2.jpg" alt="Seasoning 2" class="product-image"><div class="product-content"><h3>Seasoning 2</h3><div class="price">$8.00</div><p>Seasoning slot 2.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="seasoning-3.jpg" alt="Seasoning 3" class="product-image"><div class="product-content"><h3>Seasoning 3</h3><div class="price">$8.00</div><p>Seasoning slot 3.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="seasoning-4.jpg" alt="Seasoning 4" class="product-image"><div class="product-content"><h3>Seasoning 4</h3><div class="price">$8.00</div><p>Seasoning slot 4.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="seasoning-5.jpg" alt="Seasoning 5" class="product-image"><div class="product-content"><h3>Seasoning 5</h3><div class="price">$8.00</div><p>Seasoning slot 5.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="seasoning-6.jpg" alt="Seasoning 6" class="product-image"><div class="product-content"><h3>Seasoning 6</h3><div class="price">$8.00</div><p>Seasoning slot 6.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="seasoning-7.jpg" alt="Seasoning 7" class="product-image"><div class="product-content"><h3>Seasoning 7</h3><div class="price">$8.00</div><p>Seasoning slot 7.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="seasoning-8.jpg" alt="Seasoning 8" class="product-image"><div class="product-content"><h3>Seasoning 8</h3><div class="price">$8.00</div><p>Seasoning slot 8.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="seasoning-9.jpg" alt="Seasoning 9" class="product-image"><div class="product-content"><h3>Seasoning 9</h3><div class="price">$8.00</div><p>Seasoning slot 9.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="seasoning-10.jpg" alt="Seasoning 10" class="product-image"><div class="product-content"><h3>Seasoning 10</h3><div class="price">$8.00</div><p>Seasoning slot 10.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="seasoning-11.jpg" alt="Seasoning 11" class="product-image"><div class="product-content"><h3>Seasoning 11</h3><div class="price">$8.00</div><p>Seasoning slot 11.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="seasoning-12.jpg" alt="Seasoning 12" class="product-image"><div class="product-content"><h3>Seasoning 12</h3><div class="price">$8.00</div><p>Seasoning slot 12.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-section" id="xl-bottles">
+            <h2 class="carousel-title">XL Bottles of Seasonings</h2>
+            <p class="carousel-subtext">8 slots</p>
+            <div class="carousel-wrap">
+              <div class="carousel">
+                <div class="product-card"><img src="xl-seasoning-1.jpg" alt="XL Bottle 1" class="product-image"><div class="product-content"><h3>XL Bottle 1</h3><div class="price">$15.00</div><p>XL bottle slot 1.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-2.jpg" alt="XL Bottle 2" class="product-image"><div class="product-content"><h3>XL Bottle 2</h3><div class="price">$15.00</div><p>XL bottle slot 2.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-3.jpg" alt="XL Bottle 3" class="product-image"><div class="product-content"><h3>XL Bottle 3</h3><div class="price">$15.00</div><p>XL bottle slot 3.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-4.jpg" alt="XL Bottle 4" class="product-image"><div class="product-content"><h3>XL Bottle 4</h3><div class="price">$15.00</div><p>XL bottle slot 4.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-5.jpg" alt="XL Bottle 5" class="product-image"><div class="product-content"><h3>XL Bottle 5</h3><div class="price">$15.00</div><p>XL bottle slot 5.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-6.jpg" alt="XL Bottle 6" class="product-image"><div class="product-content"><h3>XL Bottle 6</h3><div class="price">$15.00</div><p>XL bottle slot 6.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-7.jpg" alt="XL Bottle 7" class="product-image"><div class="product-content"><h3>XL Bottle 7</h3><div class="price">$15.00</div><p>XL bottle slot 7.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-8.jpg" alt="XL Bottle 8" class="product-image"><div class="product-content"><h3>XL Bottle 8</h3><div class="price">$15.00</div><p>XL bottle slot 8.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-section" id="marinades-kits">
+            <h2 class="carousel-title">Marinades and Kits</h2>
+            <p class="carousel-subtext">5 slots</p>
+            <div class="carousel-wrap">
+              <div class="carousel">
+                <div class="product-card"><img src="marinade-1.jpg" alt="Marinade and Kit 1" class="product-image"><div class="product-content"><h3>Marinade / Kit 1</h3><div class="price">$18.00</div><p>Marinade and kit slot 1.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="marinade-2.jpg" alt="Marinade and Kit 2" class="product-image"><div class="product-content"><h3>Marinade / Kit 2</h3><div class="price">$18.00</div><p>Marinade and kit slot 2.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="marinade-3.jpg" alt="Marinade and Kit 3" class="product-image"><div class="product-content"><h3>Marinade / Kit 3</h3><div class="price">$18.00</div><p>Marinade and kit slot 3.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="marinade-4.jpg" alt="Marinade and Kit 4" class="product-image"><div class="product-content"><h3>Marinade / Kit 4</h3><div class="price">$18.00</div><p>Marinade and kit slot 4.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="marinade-5.jpg" alt="Marinade and Kit 5" class="product-image"><div class="product-content"><h3>Marinade / Kit 5</h3><div class="price">$18.00</div><p>Marinade and kit slot 5.</p><a href="contact.html" class="btn">Order This Item</a></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-section" id="greek-pickles">
+            <h2 class="carousel-title">Gourmet Greek Pickles</h2>
+            <p class="carousel-subtext">2 slots</p>
+            <div class="carousel-wrap">
+              <div class="carousel">
+                <div class="product-card">
+                  <img src="pickle-1.jpg" alt="Gourmet Greek Pickles 1" class="product-image">
+                  <div class="product-content">
+                    <h3>Greek Pickles 1</h3>
+                    <div class="price">$12.00</div>
+                    <p>Gourmet Greek pickle slot 1.</p>
+                    <a href="contact.html" class="btn">Order This Item</a>
+                  </div>
+                </div>
+
+                <div class="product-card">
+                  <img src="pickle-2.jpg" alt="Gourmet Greek Pickles 2" class="product-image">
+                  <div class="product-content">
+                    <h3>Greek Pickles 2</h3>
+                    <div class="price">$12.00</div>
+                    <p>Gourmet Greek pickle slot 2.</p>
+                    <a href="contact.html" class="btn">Order This Item</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card contact-box">
+          <h2>Want to Place an Order?</h2>
+          <p>
+            Until a full checkout system is added, customers can use the contact page to ask about
+            availability, pricing, sizes, pickup, delivery, or bulk orders.
+          </p>
+          <a href="contact.html">Go to Contact Page</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Smokin' LeRoy's Mobile Kitchen LLC
+    </div>
+  </footer>
+</body>
+</html>
