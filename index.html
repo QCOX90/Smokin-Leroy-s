@@ -23,6 +23,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -184,7 +188,9 @@
     }
 
     .socials a,
-    .hero-buttons a {
+    .hero-buttons a,
+    .section-button,
+    .product-card .btn {
       padding: 12px 18px;
       border-radius: 999px;
       font-weight: 800;
@@ -198,7 +204,9 @@
     }
 
     .socials a:hover,
-    .hero-buttons a:hover {
+    .hero-buttons a:hover,
+    .section-button:hover,
+    .product-card .btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 18px rgba(0,0,0,0.12);
     }
@@ -304,6 +312,99 @@
       background: #f3f3f3;
     }
 
+    .shop-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .shop-intro p {
+      color: var(--muted);
+      margin: 0;
+      max-width: 700px;
+      line-height: 1.7;
+    }
+
+    .section-button {
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      color: white;
+      white-space: nowrap;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .product-card {
+      background: #fff9ef;
+      border: 1px solid #eedfc5;
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #f1f1f1;
+    }
+
+    .product-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .product-content p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--red);
+    }
+
+    .product-card .btn {
+      background: var(--dark);
+      color: white;
+      margin-top: auto;
+      text-align: center;
+    }
+
+    .sheet-note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      background: #fff9ef;
+      border: 1px solid #eedfc5;
+      border-radius: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .code-inline {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 8px;
+      background: #fff1dd;
+      border: 1px solid #efd4a2;
+      font-weight: 700;
+      color: #7c4300;
+    }
+
     .owner-grid {
       display: grid;
       grid-template-columns: 0.85fr 1.15fr;
@@ -347,7 +448,8 @@
 
     @media (max-width: 900px) {
       .hero-card,
-      .owner-grid {
+      .owner-grid,
+      .shop-grid {
         grid-template-columns: 1fr;
       }
 
@@ -386,6 +488,10 @@
       h1 {
         font-size: 2rem;
       }
+
+      .product-image {
+        height: 200px;
+      }
     }
   </style>
 </head>
@@ -400,6 +506,7 @@
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
+        <a href="shop.html">Shop</a>
         <a href="contact.html">Contact & Catering</a>
       </nav>
     </div>
@@ -434,7 +541,7 @@
 
             <div class="hero-buttons">
               <a href="menu.html">View Menu</a>
-              <a href="contact.html">Book Catering</a>
+              <a href="#scheduleSection">Today's Location</a>
             </div>
           </div>
 
@@ -446,6 +553,55 @@
     </section>
 
     <section class="section">
+      <div class="container">
+        <div class="card">
+          <div class="shop-intro">
+            <div>
+              <h2>Shop Smokin' LeRoy's</h2>
+              <p>
+                Sauces, seasonings, merch, and more. You can use this section on the home page to
+                preview featured items, then send people to the full shop page.
+              </p>
+            </div>
+            <a href="shop.html" class="section-button">Visit Full Shop</a>
+          </div>
+
+          <div class="shop-grid">
+            <div class="product-card">
+              <img src="shop-sauce.jpg" alt="Smokin' LeRoy's signature sauce" class="product-image">
+              <div class="product-content">
+                <h3>Signature BBQ Sauce</h3>
+                <div class="price">$10.00</div>
+                <p>Bold, smoky flavor made to pair with ribs, pulled pork, chicken, and more.</p>
+                <a href="shop.html" class="btn">Shop Item</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <img src="shop-rub.jpg" alt="Smokin' LeRoy's seasoning rub" class="product-image">
+              <div class="product-content">
+                <h3>House Seasoning Rub</h3>
+                <div class="price">$8.00</div>
+                <p>A savory blend that works great on pork, chicken, burgers, and grilled sides.</p>
+                <a href="shop.html" class="btn">Shop Item</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <img src="shop-shirt.jpg" alt="Smokin' LeRoy's t-shirt merch" class="product-image">
+              <div class="product-content">
+                <h3>Smokin' LeRoy's T-Shirt</h3>
+                <div class="price">$20.00</div>
+                <p>Rep the truck with official merch and keep the brand rolling everywhere you go.</p>
+                <a href="shop.html" class="btn">Shop Item</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="scheduleSection">
       <div class="container">
         <div class="card today-box">
           <h2>Where Are We Today?</h2>
@@ -467,6 +623,16 @@
             Customers can quickly see where the truck will be all week long.
           </p>
           <div class="schedule-grid" id="scheduleGrid"></div>
+
+          <div class="sheet-note">
+            To make this live, keep your Google Sheet columns as
+            <span class="code-inline">Day</span>,
+            <span class="code-inline">Address</span>, and
+            <span class="code-inline">Hours</span>.
+            Then paste your live JSON feed into
+            <span class="code-inline">SHEET_API_URL</span>
+            in the script at the bottom of this file.
+          </div>
         </div>
       </div>
     </section>
@@ -526,15 +692,17 @@
     /*
       GOOGLE SHEETS SETUP
 
-      Your data should have columns like:
+      Your Google Sheet should have exactly these columns:
       Day | Address | Hours
 
       Example:
-      Sunday |  |
+      Sunday |  | 
       Monday | 123 Main St, Memphis, TN | 11:00 AM - 3:00 PM
+      Tuesday | 456 Poplar Ave, Memphis, TN | 11:00 AM - 3:00 PM
 
-      Paste your live Google Sheets JSON endpoint into SHEET_API_URL below.
-      If left blank, the demo data will be used.
+      Then connect a public JSON endpoint and paste it into SHEET_API_URL below.
+
+      If SHEET_API_URL is blank, the site uses the fallback demo schedule.
     */
 
     const SHEET_API_URL = "";
@@ -560,12 +728,24 @@
     ];
 
     async function getScheduleData() {
-      if (!SHEET_API_URL) return fallbackSchedule;
+      if (!SHEET_API_URL.trim()) return fallbackSchedule;
 
       try {
-        const response = await fetch(SHEET_API_URL);
-        if (!response.ok) throw new Error("Failed to fetch sheet data");
+        const response = await fetch(SHEET_API_URL, {
+          method: "GET",
+          cache: "no-store"
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch sheet data");
+        }
+
         const data = await response.json();
+
+        if (!Array.isArray(data)) {
+          throw new Error("Sheet data format is not an array");
+        }
+
         return data;
       } catch (error) {
         console.error("Using fallback schedule because API failed:", error);
@@ -573,13 +753,17 @@
       }
     }
 
+    function normalizeText(value) {
+      return String(value || "").trim();
+    }
+
     function normalizeSchedule(data) {
       const map = new Map();
 
       data.forEach(item => {
-        const day = (item.day || item.Day || "").trim();
-        const address = (item.address || item.Address || "").trim();
-        const hours = (item.hours || item.Hours || "").trim();
+        const day = normalizeText(item.day || item.Day);
+        const address = normalizeText(item.address || item.Address);
+        const hours = normalizeText(item.hours || item.Hours);
 
         if (day) {
           map.set(day, { day, address, hours });
@@ -629,7 +813,7 @@
 
         row.innerHTML = `
           <div class="day-name">${item.day}${item.day === todayName ? " • Today" : ""}</div>
-          <div>${isClosed ? '<span class="closed">Closed for the day</span>' : `<strong>Address:</strong> ${item.address}`}</div>
+          <div>${isClosed ? '<span class="closed">Closed for the day</span>' : `<strong>Address:</strong> ${item.address || "Not listed"}`}</div>
           <div>${isClosed ? "" : `<strong>Hours of operation:</strong> ${item.hours || "Not listed"}`}</div>
         `;
 
