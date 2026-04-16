@@ -758,21 +758,26 @@
     }
 
     function normalizeSchedule(data) {
-      const map = new Map();
+  const map = new Map();
 
-      data.forEach(item => {
-        const day = normalizeText(item.day || item.Day);
-        const address = normalizeText(item.address || item.Address);
-        const hours = normalizeText(item.hours || item.Hours);
+  data.forEach(item => {
+    const cleaned = {};
 
-        if (day) {
-          map.set(day, { day, address, hours });
-        }
-      });
+    Object.keys(item).forEach(key => {
+      cleaned[key.trim().toLowerCase()] = item[key];
+    });
 
-      return orderedDays.map(day => map.get(day) || { day, address: "", hours: "" });
+    const day = normalizeText(cleaned.day);
+    const address = normalizeText(cleaned.address);
+    const hours = normalizeText(cleaned.hours);
+
+    if (day) {
+      map.set(day, { day, address, hours });
     }
+  });
 
+  return orderedDays.map(day => map.get(day) || { day, address: "", hours: "" });
+}
     function getTodayName() {
       return orderedDays[new Date().getDay()];
     }
