@@ -274,9 +274,20 @@
 
     .product-image {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
+      height: 240px;
+      object-fit: contain;
+      object-position: center top;
       background: #f1f1f1;
+      padding: 10px;
+    }
+
+    .product-image.hot-sauce-image {
+      height: 240px;
+      object-fit: cover;
+      object-position: center;
+      padding: 0;
+      transform: scale(0.8);
+      transform-origin: center;
     }
 
     .product-content {
@@ -369,7 +380,11 @@
       }
 
       .product-image {
-        height: 190px;
+        height: 210px;
+      }
+
+      .product-image.hot-sauce-image {
+        height: 210px;
       }
     }
   </style>
@@ -461,34 +476,34 @@
                   </div>
                 </div>
               </div>
-                
-                 <div class="carousel-section" id="hats">
-            <h2 class="carousel-title">Hot Sauces</h2>
-            <p class="carousel-subtext"></p>
-            <div class="carousel-wrap">
-              <div class="carousel">
-                <div class="product-card">
-                  <img src="hotsauce-1.jpg" alt="Hat 1" class="product-image" onerror="this.onerror=null;this.src='logo.png';">
-                  <div class="product-content">
-                    <h3>Jalapeno Zing Sauce</h3>
-                    <div class="price">$9.00</div>
-                    <p>Featured Smokin' LeRoy's Hot Sauce.</p>
-                    <a href="contact.html" class="btn">Order This Item</a>
-                  </div>
-                </div>
 
-                <div class="product-card">
-                  <img src="hotsauce-2.jpg" alt="Hat 3" class="product-image" onerror="this.onerror=null;this.src='logo.png';">
-                  <div class="product-content">
-                    <h3>LIL' KICK Hot Sauce</h3>
-                    <div class="price">$9.00</div>
-                    <p>Featured Smokin' LeRoy's Hot Sauce.</p>
-                    <a href="contact.html" class="btn">Order This Item</a>
+              <div class="carousel-section" id="hats">
+                <h2 class="carousel-title">Hot Sauces</h2>
+                <p class="carousel-subtext"></p>
+                <div class="carousel-wrap">
+                  <div class="carousel">
+                    <div class="product-card">
+                      <img src="hotsauce-1.jpg" alt="Hat 1" class="product-image hot-sauce-image" onerror="this.onerror=null;this.src='logo.png';">
+                      <div class="product-content">
+                        <h3>Jalapeno Zing Sauce</h3>
+                        <div class="price">$9.00</div>
+                        <p>Featured Smokin' LeRoy's Hot Sauce.</p>
+                        <a href="contact.html" class="btn">Order This Item</a>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <img src="hotsauce-2.jpg" alt="Hat 3" class="product-image hot-sauce-image" onerror="this.onerror=null;this.src='logo.png';">
+                      <div class="product-content">
+                        <h3>LIL' KICK Hot Sauce</h3>
+                        <div class="price">$9.00</div>
+                        <p>Featured Smokin' LeRoy's Hot Sauce.</p>
+                        <a href="contact.html" class="btn">Order This Item</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
             </div>  
             </div>
@@ -544,13 +559,14 @@
             </div>
           </div>
 
-           <div class="carousel-section" id="marinades-kits">
+          <div class="carousel-section" id="marinades-kits">
             <h2 class="carousel-title">Marinades Kits </h2>
             <p class="carousel-subtext">2 slots</p>
             <div class="carousel-wrap">
               <div class="carousel">
                 <div class="product-card"><img src="marinadekit-1.jpg" alt="Marinade and Kit 1" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Steak Kit</h3><div class="price">$19.50</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
                 <div class="product-card"><img src="marinadekit-2.jpg" alt="Marinade and Kit 2" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Chicken Kit</h3><div class="price">$35.00</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
+              </div>
             </div>
           </div>
 
