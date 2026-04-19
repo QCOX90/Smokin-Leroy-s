@@ -208,9 +208,7 @@
             <div>
               <h2>Send a Message</h2>
 
-              <form name="contact" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="contact" />
-
+              <form id="contactForm">
                 <div>
                   <label for="name">Full Name</label>
                   <input id="name" name="name" type="text" required />
@@ -250,5 +248,32 @@
       Smokin' LeRoy's Mobile Kitchen LLC
     </div>
   </footer>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const fullName = document.getElementById("name").value.trim();
+      const phoneNumber = document.getElementById("phone").value.trim();
+      const emailAddress = document.getElementById("email").value.trim();
+      const eventDate = document.getElementById("eventDate").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const subject = encodeURIComponent(`Catering Inquiry from ${fullName}`);
+      const body = encodeURIComponent(
+`New Catering / Contact Inquiry
+
+Full Name: ${fullName}
+Phone Number: ${phoneNumber}
+Email Address: ${emailAddress}
+Event Date: ${eventDate}
+
+Event / Request Details:
+${message}`
+      );
+
+      window.location.href = `mailto:smokingleroys@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
 </body>
 </html>
