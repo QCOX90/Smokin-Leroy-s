@@ -74,11 +74,11 @@
   overflow: visible;
 }
 
- .brand {
+.brand {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -42%);
+  transform: translate(-50%, -30%);  /* was -42% → this brings it UP */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,13 +86,15 @@
   pointer-events: auto;
   overflow: visible;
 }
-
+    
 .nav-brand-logo {
-  height: 416px;   /* 30% bigger from your current working size */
-  width: auto;
+  height: 118px;
+  width: 420px;
   max-width: none;
   object-fit: contain;
   display: block;
+  transform: scale(6.5);   /* was 5 → now bigger */
+  transform-origin: center center;
 }
 
     .nav-links {
