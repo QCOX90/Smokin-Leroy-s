@@ -127,28 +127,34 @@
     }
 
     .hero-card {
-  background: #f8f8f8;
-  border-radius: 26px;
-  padding: 18px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--gold-line);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.92fr);
-  gap: 14px;
-  align-items: start;
-}
-.hero-copy {
-  text-align: center;
-  padding: 2px 8px 0;
-}
-.hero-logo {
-  width: 520px;
-  max-width: 92%;
-  margin: 0 auto 10px;
-  opacity: 0;
-  transform: scale(0.92);
-  animation: logoReveal 0.9s ease-out 0.15s forwards;
-}
+      background: #f8f8f8;
+      border-radius: 26px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gold-line);
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.92fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .hero-copy {
+      text-align: center;
+      padding: 2px 8px 0;
+    }
+
+    .hero-logo {
+      width: 520px;
+      max-width: 92%;
+      margin: 0 auto 10px;
+      opacity: 0;
+      transform: scale(0.92);
+      animation: logoReveal 0.9s ease-out 0.15s forwards;
+    }
+
     .badge {
       display: inline-block;
       background: #fff1d8;
@@ -233,11 +239,11 @@
       border: none;
     }
 
-  .hero-right {
-  display: grid;
-  gap: 10px;
-  align-self: start;
-}
+    .hero-right {
+      display: grid;
+      gap: 10px;
+      align-self: start;
+    }
 
     .hero-image-wrap {
       border-radius: 20px;
@@ -255,10 +261,10 @@
       display: block;
     }
 
-.hero-contact-list {
-  display: grid;
-  gap: 8px;
-}
+    .hero-contact-list {
+      display: grid;
+      gap: 8px;
+    }
 
     .hero-contact-item {
       background: var(--cream-card);
@@ -285,6 +291,10 @@
       justify-content: center;
       font-size: 1rem;
       font-weight: 900;
+    }
+
+    .hero-bottom {
+      margin-top: 4px;
     }
 
     .section {
@@ -485,7 +495,7 @@
     }
 
     @media (max-width: 980px) {
-      .hero-card,
+      .hero-top,
       .owner-grid,
       .shop-grid {
         grid-template-columns: 1fr;
@@ -594,54 +604,60 @@
     <section class="hero">
       <div class="container">
         <div class="hero-card">
-          <div class="hero-copy">
-            <img src="logo.png" alt="Smokin' LeRoy's Mobile Kitchen LLC Logo" class="hero-logo">
-
-            <div class="badge">Breakfast • Lunch • Mobile Kitchen</div>
-            <h1>Fresh food on the move.</h1>
-
-            <p>
-              Welcome to Smokin' LeRoy's Mobile Kitchen LLC. We serve flavorful breakfast and lunch
-              favorites with a bold smoked style, and we bring the food truck experience to local
-              communities, events, and catering opportunities.
-            </p>
-
-            <div class="hero-buttons">
-              <a href="menu.html">View Our Menu</a>
-              <a href="shop.html">Shop Our Products</a>
-              <a href="#scheduleSection">View Today's Location</a>
+          <div class="hero-top">
+            <div class="hero-copy">
+              <img src="logo.png" alt="Smokin' LeRoy's Mobile Kitchen LLC Logo" class="hero-logo">
             </div>
 
-            <div class="socials">
-              <a href="https://www.facebook.com/share/17WKYagXq9/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
-              <a href="https://www.instagram.com/smoking_leroys?igsh=MXQ5eXBuZjk3Y3ptcw==" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <div class="hero-right">
+              <div class="hero-image-wrap">
+                <img src="truck.jpg" alt="Smokin' LeRoy's food truck" class="hero-image">
+              </div>
+
+              <div class="hero-contact-list">
+                <div class="hero-contact-item">
+                  <span class="hero-contact-icon">☎</span>
+                  <span>Call Us: <a href="tel:19013170481">901-317-0481</a></span>
+                </div>
+
+                <div class="hero-contact-item">
+                  <span class="hero-contact-icon">✉</span>
+                  <span>Email: <a href="mailto:smokingleroys@gmail.com">smokingleroys@gmail.com</a></span>
+                </div>
+
+                <div class="hero-contact-item">
+                  <span class="hero-contact-icon">📍</span>
+                  <span>Serving Memphis and Surrounding Areas</span>
+                </div>
+
+                <div class="hero-contact-item">
+                  <span class="hero-contact-icon">◔</span>
+                  <span>Check our schedule below to find us!</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="hero-right">
-            <div class="hero-image-wrap">
-              <img src="truck.jpg" alt="Smokin' LeRoy's food truck" class="hero-image">
-            </div>
+          <div class="hero-bottom">
+            <div class="hero-copy">
+              <div class="badge">Breakfast • Lunch • Mobile Kitchen</div>
+              <h1>Fresh food on the move.</h1>
 
-            <div class="hero-contact-list">
-              <div class="hero-contact-item">
-                <span class="hero-contact-icon">☎</span>
-                <span>Call Us: <a href="tel:19013170481">901-317-0481</a></span>
+              <p>
+                Welcome to Smokin' LeRoy's Mobile Kitchen LLC. We serve flavorful breakfast and lunch
+                favorites with a bold smoked style, and we bring the food truck experience to local
+                communities, events, and catering opportunities.
+              </p>
+
+              <div class="hero-buttons">
+                <a href="menu.html">View Our Menu</a>
+                <a href="shop.html">Shop Our Products</a>
+                <a href="#scheduleSection">View Today's Location</a>
               </div>
 
-              <div class="hero-contact-item">
-                <span class="hero-contact-icon">✉</span>
-                <span>Email: <a href="mailto:smokingleroys@gmail.com">smokingleroys@gmail.com</a></span>
-              </div>
-
-              <div class="hero-contact-item">
-                <span class="hero-contact-icon">📍</span>
-                <span>Serving Memphis and Surrounding Areas</span>
-              </div>
-
-              <div class="hero-contact-item">
-                <span class="hero-contact-icon">◔</span>
-                <span>Check our schedule below to find us!</span>
+              <div class="socials">
+                <a href="https://www.facebook.com/share/17WKYagXq9/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="https://www.instagram.com/smoking_leroys?igsh=MXQ5eXBuZjk3Y3ptcw==" target="_blank" rel="noopener noreferrer">Instagram</a>
               </div>
             </div>
           </div>
