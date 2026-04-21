@@ -174,17 +174,24 @@
       border: 1px solid var(--gold-line);
     }
 
-    .hero-top {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.92fr);
-      gap: 14px;
-      align-items: start;
-    }
+ .hero-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.92fr);
+  gap: 18px;
+  align-items: start;
+}
 
     .hero-copy {
       text-align: center;
       padding: 2px 8px 0;
     }
+    
+    .hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
 
 .hero-logo {
   width: 520px;
@@ -732,17 +739,18 @@
     <section class="hero">
       <div class="container">
         <div class="hero-card">
-          <div class="hero-top">
-            <div class="hero-copy">
-              <img src="logo.png" alt="Smokin' LeRoy's Mobile Kitchen LLC Logo" class="hero-logo">
-            </div>
+         <div class="hero-top">
+  <div class="hero-left">
+    <div class="hero-copy">
+      <img src="logo.png" alt="Smokin' LeRoy's Mobile Kitchen LLC Logo" class="hero-logo">
+    </div>
 
-            <div class="hero-right">
-              <div class="hero-image-wrap">
-                <img src="truck.jpg" alt="Smokin' LeRoy's food truck" class="hero-image">
-              </div>
+     <div class="hero-right">
+    <div class="hero-image-wrap">
+      <img src="truck.jpg" alt="Smokin' LeRoy's food truck" class="hero-image">
+    </div>
 
-              <div class="hero-contact-list">
+    <div class="hero-contact-list">
                 <div class="hero-contact-item">
                   <span class="hero-contact-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24">
@@ -782,24 +790,23 @@
             </div>
           </div>
 
-          <div class="hero-bottom">
-            <div class="hero-copy">
-              <div class="badge">Breakfast • Lunch • Mobile Kitchen</div>
-              <h1>Fresh food on the move.</h1>
+         <div class="hero-bottom">
+      <div class="hero-copy">
+        <div class="badge">Breakfast • Lunch • Mobile Kitchen</div>
+        <h1>Fresh food on the move.</h1>
+        <p>
+          Welcome to Smokin' LeRoy's Mobile Kitchen LLC. We serve flavorful breakfast and lunch
+          favorites with a bold smoked style, and we bring the food truck experience to local
+          communities, events, and catering opportunities.
+        </p>
 
-              <p>
-                Welcome to Smokin' LeRoy's Mobile Kitchen LLC. We serve flavorful breakfast and lunch
-                favorites with a bold smoked style, and we bring the food truck experience to local
-                communities, events, and catering opportunities.
-              </p>
+        <div class="hero-buttons">
+          <a href="menu.html">View Our Menu</a>
+          <a href="shop.html">Shop Our Products</a>
+          <a href="#scheduleSection">View Today's Location</a>
+        </div>
 
-              <div class="hero-buttons">
-                <a href="menu.html">View Our Menu</a>
-                <a href="shop.html">Shop Our Products</a>
-                <a href="#scheduleSection">View Today's Location</a>
-              </div>
-
-              <div class="socials">
+        <div class="socials">
                 <a href="https://www.facebook.com/share/17WKYagXq9/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M13.5 21v-7.2h2.42l.36-2.8H13.5V9.21c0-.81.23-1.36 1.39-1.36h1.48V5.34c-.26-.03-1.14-.09-2.17-.09-2.14 0-3.61 1.31-3.61 3.72V11H8.16v2.8h2.43V21h2.91Z"/>
