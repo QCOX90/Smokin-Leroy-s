@@ -55,32 +55,29 @@
     .topbar {
       background: #2f3237;
       color: white;
-      padding: 8px 0;
+      padding: 6px 0;
       box-shadow: var(--shadow);
       position: sticky;
       top: 0;
       z-index: 10;
+      border-bottom: 1px solid rgba(238, 211, 160, 0.7);
     }
 
     .nav {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 14px;
-      flex-wrap: nowrap;
+      gap: 18px;
     }
 
     .brand {
       display: flex;
+      justify-content: center;
       align-items: center;
-      flex: 0 1 auto;
-      min-width: 0;
-      gap: 0;
-      letter-spacing: 0;
     }
 
     .nav-brand-logo {
-      height: 64px;
+      height: 78px;
       width: auto;
       max-width: 100%;
       object-fit: contain;
@@ -89,25 +86,32 @@
 
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 8px;
       flex-wrap: wrap;
+    }
+
+    .nav-left {
       justify-content: flex-end;
-      align-items: center;
+    }
+
+    .nav-right {
+      justify-content: flex-start;
     }
 
     .nav-links a {
-      background: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.14);
       padding: 8px 12px;
       border-radius: 999px;
       font-weight: 700;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       line-height: 1;
       transition: 0.2s ease;
       white-space: nowrap;
     }
 
     .nav-links a:hover {
-      background: rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.24);
     }
 
     .hero {
@@ -502,18 +506,18 @@
       }
 
       .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 8px;
       }
 
-      .brand {
-        width: 100%;
+      .nav-left,
+      .nav-right {
         justify-content: center;
       }
 
       .nav-brand-logo {
-        height: 56px;
+        height: 70px;
       }
 
       .hero-logo {
@@ -529,10 +533,14 @@
     }
 
     @media (max-width: 640px) {
+      .topbar {
+        padding: 8px 0;
+      }
+
       .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 8px;
       }
 
       .brand {
@@ -541,9 +549,11 @@
       }
 
       .nav-brand-logo {
-        height: 52px;
+        height: 68px;
       }
 
+      .nav-left,
+      .nav-right,
       .nav-links {
         width: 100%;
         justify-content: center;
@@ -585,13 +595,16 @@
 <body>
   <header class="topbar">
     <div class="container nav">
+      <nav class="nav-links nav-left">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+      </nav>
+
       <div class="brand">
         <img src="nav-logo.png" alt="Smokin' LeRoy's Mobile Kitchen LLC" class="nav-brand-logo">
       </div>
 
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
+      <nav class="nav-links nav-right">
         <a href="shop.html">Shop</a>
         <a href="contact.html">Contact</a>
       </nav>
