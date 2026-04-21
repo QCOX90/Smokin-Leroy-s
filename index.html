@@ -64,34 +64,38 @@
       overflow: visible;
     }
 
-    .nav {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      height: 114px;
-      min-height: 114px;
-    }
+  .nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 114px;
+  min-height: 114px;
+  overflow: visible;
+}
 
-    .brand {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -42%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 3;
-      pointer-events: auto;
-    }
+ .brand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -42%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  pointer-events: auto;
+  overflow: visible;
+}
 
-    .nav-brand-logo {
-      height: 118px;
-      width: auto;
-      max-width: none;
-      object-fit: contain;
-      display: block;
-    }
+.nav-brand-logo {
+  height: 118px;
+  width: 420px;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+  transform: scale(5);
+  transform-origin: center center;
+}
 
     .nav-links {
       display: flex;
