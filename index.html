@@ -10,6 +10,7 @@
       --orange: #f77f00;
       --yellow: #fcbf49;
       --dark: #161616;
+      --graphite: #2f3237;
       --light: #fffaf2;
       --white: #ffffff;
       --muted: #5f5f5f;
@@ -17,6 +18,8 @@
       --shadow: 0 16px 34px rgba(0,0,0,0.12);
       --radius: 24px;
       --max: 1160px;
+      --gold-line: #eed3a0;
+      --cream-card: #fff9ef;
     }
 
     * {
@@ -120,29 +123,30 @@
     }
 
     .hero {
-      padding: 42px 0 24px;
+      padding: 18px 0 22px;
     }
 
     .hero-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 32px;
+      background: #f8f8f8;
+      border-radius: 26px;
+      padding: 18px;
       box-shadow: var(--shadow);
-      border: 1px solid var(--border);
+      border: 1px solid var(--gold-line);
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
-      align-items: center;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.92fr);
+      gap: 18px;
+      align-items: start;
     }
 
     .hero-copy {
       text-align: center;
+      padding: 8px 8px 4px;
     }
 
     .hero-logo {
-      width: 960px;
-      max-width: 100%;
-      margin: 0 auto 18px;
+      width: 430px;
+      max-width: 88%;
+      margin: 0 auto 12px;
       opacity: 0;
       transform: scale(0.92);
       animation: logoReveal 0.9s ease-out 0.15s forwards;
@@ -152,11 +156,12 @@
       display: inline-block;
       background: #fff1d8;
       color: #7c4300;
-      padding: 8px 14px;
+      padding: 6px 12px;
       border-radius: 999px;
-      font-size: 0.92rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
+      border: 1px solid #efd4a2;
     }
 
     h1, h2, h3 {
@@ -164,37 +169,24 @@
     }
 
     h1 {
-      font-size: clamp(2.2rem, 5vw, 3.7rem);
+      font-size: clamp(2.2rem, 4.3vw, 3.15rem);
       line-height: 1.02;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .hero p {
       color: var(--muted);
-      font-size: 1.04rem;
+      font-size: 1rem;
       line-height: 1.7;
-    }
-
-    .info-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .info-item {
-      background: #fff9ef;
-      border: 1px solid #eedfc5;
-      border-radius: 16px;
-      padding: 14px 16px;
-      font-weight: 700;
-      line-height: 1.5;
+      margin: 0 auto;
+      max-width: 590px;
     }
 
     .socials {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
+      gap: 10px;
+      margin-top: 16px;
       justify-content: center;
     }
 
@@ -202,16 +194,21 @@
     .hero-buttons a,
     .section-button,
     .product-card .btn {
-      padding: 12px 18px;
       border-radius: 999px;
       font-weight: 800;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      text-align: center;
     }
 
     .socials a {
-      background: var(--dark);
+      background: #111111;
       color: white;
+      min-width: 120px;
+      padding: 10px 16px;
+      font-size: 0.95rem;
     }
 
     .socials a:hover,
@@ -230,31 +227,67 @@
       justify-content: center;
     }
 
-    .hero-buttons a:first-child {
+    .hero-buttons a,
+    .section-button {
       background: linear-gradient(90deg, var(--red), var(--orange));
       color: white;
+      padding: 13px 20px;
+      min-width: 190px;
+      border: none;
     }
 
-    .hero-buttons a:last-child {
-      background: #fff3dd;
-      border: 1px solid #efd4a2;
+    .hero-right {
+      display: grid;
+      gap: 12px;
+      align-self: start;
     }
 
     .hero-image-wrap {
-      border-radius: 22px;
+      border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-      border: 1px solid #ead4ad;
+      border: 1px solid var(--gold-line);
       background: #f5f5f5;
-      align-self: start;
     }
 
     .hero-image {
       width: 100%;
       height: auto;
-      max-height: 420px;
+      max-height: 360px;
       object-fit: cover;
       display: block;
+    }
+
+    .hero-contact-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .hero-contact-item {
+      background: var(--cream-card);
+      border: 1px solid var(--gold-line);
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-weight: 700;
+      line-height: 1.45;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 58px;
+    }
+
+    .hero-contact-icon {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #f7d46e, #f0bf41);
+      color: #111111;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 900;
     }
 
     .section {
@@ -339,12 +372,6 @@
       line-height: 1.7;
     }
 
-    .section-button {
-      background: linear-gradient(90deg, var(--red), var(--orange));
-      color: white;
-      white-space: nowrap;
-    }
-
     .shop-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -396,6 +423,7 @@
       color: white;
       margin-top: auto;
       text-align: center;
+      padding: 12px 18px;
     }
 
     .sheet-note {
@@ -459,7 +487,7 @@
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .hero-card,
       .owner-grid,
       .shop-grid {
@@ -485,6 +513,17 @@
       .brand-sub {
         font-size: 0.9rem;
       }
+
+      .hero-logo {
+        width: 320px;
+        max-width: 82%;
+      }
+
+      .hero-right {
+        max-width: 720px;
+        width: 100%;
+        margin: 0 auto;
+      }
     }
 
     @media (max-width: 640px) {
@@ -496,18 +535,37 @@
         font-size: 0.78rem;
       }
 
+      .nav {
+        justify-content: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .nav-links a {
+        padding: 9px 14px;
+      }
+
       .hero-card,
       .card {
-        padding: 22px;
+        padding: 18px;
       }
 
       .hero-logo {
-        width: 100%;
-        max-width: 650px;
+        width: 250px;
+        max-width: 80%;
       }
 
       h1 {
         font-size: 2rem;
+      }
+
+      .hero-buttons a,
+      .section-button,
+      .socials a {
+        width: 100%;
+        min-width: 0;
       }
 
       .product-image {
@@ -551,25 +609,44 @@
               communities, events, and catering opportunities.
             </p>
 
-            <div class="info-list">
-              <div class="info-item">Phone: <a href="tel:19013170481">901-317-0481</a></div>
-              <div class="info-item">Email: <a href="mailto:smokingleroys@gmail.com">smokingleroys@gmail.com</a></div>
-              <div class="info-item">Available for pop-ups, local stops, special events, and catering</div>
+            <div class="hero-buttons">
+              <a href="menu.html">View Our Menu</a>
+              <a href="shop.html">Shop Our Products</a>
+              <a href="#scheduleSection">View Today's Location</a>
             </div>
 
             <div class="socials">
               <a href="https://www.facebook.com/share/17WKYagXq9/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
               <a href="https://www.instagram.com/smoking_leroys?igsh=MXQ5eXBuZjk3Y3ptcw==" target="_blank" rel="noopener noreferrer">Instagram</a>
             </div>
-
-            <div class="hero-buttons">
-              <a href="menu.html">View Menu</a>
-              <a href="#scheduleSection">Today's Location</a>
-            </div>
           </div>
 
-          <div class="hero-image-wrap">
-            <img src="truck.jpg" alt="Smokin' LeRoy's food truck" class="hero-image">
+          <div class="hero-right">
+            <div class="hero-image-wrap">
+              <img src="truck.jpg" alt="Smokin' LeRoy's food truck" class="hero-image">
+            </div>
+
+            <div class="hero-contact-list">
+              <div class="hero-contact-item">
+                <span class="hero-contact-icon">☎</span>
+                <span>Call Us: <a href="tel:19013170481">901-317-0481</a></span>
+              </div>
+
+              <div class="hero-contact-item">
+                <span class="hero-contact-icon">✉</span>
+                <span>Email: <a href="mailto:smokingleroys@gmail.com">smokingleroys@gmail.com</a></span>
+              </div>
+
+              <div class="hero-contact-item">
+                <span class="hero-contact-icon">📍</span>
+                <span>Serving Memphis and Surrounding Areas</span>
+              </div>
+
+              <div class="hero-contact-item">
+                <span class="hero-contact-icon">◔</span>
+                <span>Check our schedule below to find us!</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
