@@ -72,16 +72,17 @@
         inset 0 1px 0 rgba(255,255,255,0.04);
     }
 
-.nav {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 88px;
-  min-height: 88px;
-  overflow: visible;
-  z-index: 2;
-}
+    .nav {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 78px;
+      min-height: 78px;
+      overflow: visible;
+      z-index: 2;
+    }
+
     .brand {
       position: absolute;
       left: 50%;
@@ -95,19 +96,18 @@
       overflow: visible;
     }
 
-.nav-brand-logo {
-  height: 82px; /* matches screenshot look */
-  width: auto;
-  max-width: none;
-  object-fit: contain;
-  display: block;
-  pointer-events: none;
+    .nav-brand-logo {
+      height: 85px;
+      width: auto;
+      max-width: none;
+      object-fit: contain;
+      display: block;
+      pointer-events: none;
+      filter:
+        drop-shadow(0 0 6px rgba(255, 140, 0, 0.45))
+        drop-shadow(0 0 14px rgba(255, 80, 0, 0.30));
+    }
 
-  /* keep your glow */
-  filter:
-    drop-shadow(0 0 6px rgba(255, 140, 0, 0.35))
-    drop-shadow(0 0 16px rgba(255, 80, 0, 0.25));
-}
     .nav-links {
       display: flex;
       align-items: center;
@@ -593,14 +593,14 @@
         grid-template-columns: 1fr;
       }
 
-     .nav {
-  height: auto;
-  min-height: 0;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  padding: 6px 0 8px;
-}
+      .nav {
+        height: auto;
+        min-height: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px 0 8px;
+      }
 
       .brand {
         position: static;
@@ -616,9 +616,9 @@
         padding-right: 0;
       }
 
-.nav-brand-logo {
-  height: 70px;
-}
+      .nav-brand-logo {
+        height: 70px;
+      }
 
       .hero-logo {
         width: 360px;
@@ -637,14 +637,14 @@
         padding: 0;
       }
 
-.nav {
-  height: auto;
-  min-height: 0;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  padding: 6px 0 8px;
-}
+      .nav {
+        height: auto;
+        min-height: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px 0 8px;
+      }
 
       .brand {
         width: 100%;
@@ -655,9 +655,9 @@
         transform: none;
       }
 
-   .nav-brand-logo {
-  height: 62px;
-}
+      .nav-brand-logo {
+        height: 62px;
+      }
 
       .nav-left,
       .nav-right,
