@@ -127,31 +127,28 @@
     }
 
     .hero-card {
-      background: #f8f8f8;
-      border-radius: 26px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--gold-line);
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.92fr);
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .hero-copy {
-      text-align: center;
-      padding: 8px 8px 4px;
-    }
-
-    .hero-logo {
-      width: 860px;
-      max-width: 95%;
-      margin: 0 auto 12px;
-      opacity: 0;
-      transform: scale(0.92);
-      animation: logoReveal 0.9s ease-out 0.15s forwards;
-    }
-
+  background: #f8f8f8;
+  border-radius: 26px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gold-line);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.92fr);
+  gap: 14px;
+  align-items: start;
+}
+.hero-copy {
+  text-align: center;
+  padding: 2px 8px 0;
+}
+.hero-logo {
+  width: 520px;
+  max-width: 92%;
+  margin: 0 auto 10px;
+  opacity: 0;
+  transform: scale(0.92);
+  animation: logoReveal 0.9s ease-out 0.15s forwards;
+}
     .badge {
       display: inline-block;
       background: #fff1d8;
@@ -236,12 +233,11 @@
       border: none;
     }
 
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      height: 100%;
-    }
+  .hero-right {
+  display: grid;
+  gap: 10px;
+  align-self: start;
+}
 
     .hero-image-wrap {
       border-radius: 20px;
@@ -259,12 +255,10 @@
       display: block;
     }
 
-    .hero-contact-list {
-      display: grid;
-      gap: 8px;
-      flex: 1;
-      align-content: stretch;
-    }
+.hero-contact-list {
+  display: grid;
+  gap: 8px;
+}
 
     .hero-contact-item {
       background: var(--cream-card);
