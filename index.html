@@ -61,6 +61,7 @@
       top: 0;
       z-index: 10;
       border-bottom: 1px solid rgba(238, 211, 160, 0.7);
+      overflow: visible;
     }
 
     .nav {
@@ -82,13 +83,12 @@
       pointer-events: auto;
     }
 
-    .nav-brand-logo {
-      height: 100px;
-      width: auto;
-      max-width: 100%;
-      object-fit: contain;
-      display: block;
-    }
+  .nav-brand-logo {
+  height: 220px;   /* increase to 250px if you want even bigger */
+  width: auto;
+  position: relative;
+  top: 35px;       /* pushes it down into the page slightly */
+}
 
     .nav-links {
       display: flex;
