@@ -269,7 +269,7 @@
       border-radius: 999px;
       font-weight: 800;
       display: inline-block;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
 
     .hero-buttons a:hover,
@@ -335,13 +335,11 @@
     }
 
     .carousel-title {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .carousel-subtext {
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 14px;
+      display: none;
     }
 
     .carousel-wrap {
@@ -425,10 +423,38 @@
     }
 
     .product-card .btn {
-      background: var(--dark);
+      background: linear-gradient(135deg, #ff9a1f, #ff5a00);
       color: white;
       margin-top: auto;
       text-align: center;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card .btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255, 153, 0, 0.45) 0%, rgba(255, 102, 0, 0.18) 45%, transparent 72%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .product-card .btn:hover {
+      background: linear-gradient(135deg, #ffb347, #ff6200);
+      color: white;
+      box-shadow:
+        0 0 0 1px rgba(255, 140, 0, 0.35),
+        0 0 14px rgba(255, 140, 0, 0.45),
+        0 0 28px rgba(255, 110, 0, 0.32),
+        0 10px 20px rgba(0,0,0,0.18);
+    }
+
+    .product-card .btn:hover::after {
+      opacity: 1;
     }
 
     .contact-box {
@@ -600,7 +626,6 @@
         height: 210px;
       }
     }
-  
 
     /* NAVBAR UNIFORM OVERRIDES */
     .topbar {
@@ -781,7 +806,6 @@
         font-size: 0.88rem;
       }
     }
-
   </style>
 </head>
 <body>
@@ -837,7 +861,7 @@
 
           <div class="carousel-section" id="shirts">
             <h2 class="carousel-title">Shirts</h2>
-            <p class="carousel-subtext">3 slots</p>
+            <p class="carousel-subtext"></p>
             <div class="carousel-wrap">
               <div class="carousel">
                 <div class="product-card">
@@ -846,7 +870,7 @@
                     <h3>Smokin' LeRoy's I like Coffee on My Beef Shirt</h3>
                     <div class="price">$25.00</div>
                     <p>Smokin' LeRoy's branded t-shirt design.</p>
-                    <a href="contact.html" class="btn">Order This Item</a>
+                    <a href="https://www.southerngreekflavors.com/smokin-leroy-s-apparel" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
                   </div>
                 </div>
 
@@ -856,7 +880,7 @@
                     <h3>Smokin' LeRoy's "The Best' Greek Shirt</h3>
                     <div class="price">$25.00</div>
                     <p>Smokin' LeRoy's branded t-shirt design.</p>
-                    <a href="contact.html" class="btn">Order This Item</a>
+                    <a href="https://www.southerngreekflavors.com/smokin-leroy-s-apparel" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
                   </div>
                 </div>
 
@@ -866,7 +890,7 @@
                     <h3>Smokin' LeRoy's Smokin' Pig Shirt</h3>
                     <div class="price">$25.00</div>
                     <p>Smokin' LeRoy's branded t-shirt design.</p>
-                    <a href="contact.html" class="btn">Order This Item</a>
+                    <a href="https://www.southerngreekflavors.com/smokin-leroy-s-apparel" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
                   </div>
                 </div>
               </div>
@@ -882,7 +906,7 @@
                         <h3>Jalapeno Zing Sauce</h3>
                         <div class="price">$9.00</div>
                         <p>Featured Smokin' LeRoy's Hot Sauce.</p>
-                        <a href="contact.html" class="btn">Order This Item</a>
+                        <a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
                       </div>
                     </div>
 
@@ -892,7 +916,7 @@
                         <h3>LIL' KICK Hot Sauce</h3>
                         <div class="price">$9.00</div>
                         <p>Featured Smokin' LeRoy's Hot Sauce.</p>
-                        <a href="contact.html" class="btn">Order This Item</a>
+                        <a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
                       </div>
                     </div>
                   </div>
@@ -900,73 +924,72 @@
               </div>
 
             </div>  
-            </div>
           </div>
 
           <div class="carousel-section" id="seasonings">
             <h2 class="carousel-title">Seasonings</h2>
-            <p class="carousel-subtext">12 slots</p>
+            <p class="carousel-subtext"></p>
             <div class="carousel-wrap">
               <div class="carousel">
-                <div class="product-card"><img src="seasoning-1.jpg" alt="Seasoning 1" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Cajun Garlic Butter Seasoning</h3><div class="price">$9.97</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="seasoning-2.jpg" alt="Seasoning 2" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Garlic Butter Seasoning</h3><div class="price">$9.95</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="seasoning-4.jpg" alt="Seasoning 4" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Steak Seasoning</h3><div class="price">$9.95</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="seasoning-5.jpg" alt="Seasoning 5" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet SPG Seasoning</h3><div class="price">$9.95</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="seasoning-6.jpg" alt="Seasoning 6" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Greek Seasoning</h3><div class="price">$9.95</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="seasoning-7.jpg" alt="Seasoning 7" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Caribbean Jerk Seasoning</h3><div class="price">$9.95</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="seasoning-8.jpg" alt="Seasoning 8" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Tater Magic Seasoning</h3><div class="price">$9.95</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="seasoning-9.jpg" alt="Seasoning 9" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Everything Plus more Seasoning</h3><div class="price">$9.95</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="seasoning-10.jpg" alt="Seasoning 10" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Spicy Powder Seasoning</h3><div class="price">$9.95</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="seasoning-11.jpg" alt="Seasoning 11" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Award Wining Gourmet Chilli Seasoning</h3><div class="price">$10.00</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="seasoning-1.jpg" alt="Seasoning 1" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Cajun Garlic Butter Seasoning</h3><div class="price">$9.97</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="seasoning-2.jpg" alt="Seasoning 2" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Garlic Butter Seasoning</h3><div class="price">$9.95</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="seasoning-4.jpg" alt="Seasoning 4" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Steak Seasoning</h3><div class="price">$9.95</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="seasoning-5.jpg" alt="Seasoning 5" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet SPG Seasoning</h3><div class="price">$9.95</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="seasoning-6.jpg" alt="Seasoning 6" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Greek Seasoning</h3><div class="price">$9.95</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="seasoning-7.jpg" alt="Seasoning 7" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Caribbean Jerk Seasoning</h3><div class="price">$9.95</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="seasoning-8.jpg" alt="Seasoning 8" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Tater Magic Seasoning</h3><div class="price">$9.95</div><p></p><a href="https://www.southerngreekflavors.com/southerngreek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="seasoning-9.jpg" alt="Seasoning 9" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Everything Plus more Seasoning</h3><div class="price">$9.95</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="seasoning-10.jpg" alt="Seasoning 10" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Spicy Powder Seasoning</h3><div class="price">$9.95</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="seasoning-11.jpg" alt="Seasoning 11" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Award Wining Gourmet Chilli Seasoning</h3><div class="price">$10.00</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
               </div>
             </div>
           </div>
 
           <div class="carousel-section" id="xl-bottles">
             <h2 class="carousel-title">XL Bottles of Seasonings</h2>
-            <p class="carousel-subtext">8 slots</p>
+            <p class="carousel-subtext"></p>
             <div class="carousel-wrap">
               <div class="carousel">
-                <div class="product-card"><img src="xl-seasoning-9.jpg" alt="XL Bottle 1" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Cajun Garlic Butter Seasoning</h3><div class="price">$14.99</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="xl-seasoning-2.jpg" alt="XL Bottle 2" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Garlic Butter Seasoning</h3><div class="price">$14.99</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="xl-seasoning-3.jpg" alt="XL Bottle 3" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Steak Seasoning</h3><div class="price">$14.99</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="xl-seasoning-4.jpg" alt="XL Bottle 4" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet SPG Seasoning</h3><div class="price">$14.99</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="xl-seasoning-5.jpg" alt="XL Bottle 5" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Competition BBQ Rub</h3><div class="price">$14.99</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="xl-seasoning-6.jpg" alt="XL Bottle 6" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Chicken Rub</h3><div class="price">$12.00</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="xl-seasoning-7.jpg" alt="XL Bottle 7" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Tater Magic Seasoning</h3><div class="price">$14.95</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="xl-seasoning-8.jpg" alt="XL Bottle 8" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Chilli Seasoning All in One</h3><div class="price">$14.99</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-9.jpg" alt="XL Bottle 1" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Cajun Garlic Butter Seasoning</h3><div class="price">$14.99</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-2.jpg" alt="XL Bottle 2" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Garlic Butter Seasoning</h3><div class="price">$14.99</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-3.jpg" alt="XL Bottle 3" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Steak Seasoning</h3><div class="price">$14.99</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-4.jpg" alt="XL Bottle 4" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet SPG Seasoning</h3><div class="price">$14.99</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-5.jpg" alt="XL Bottle 5" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Competition BBQ Rub</h3><div class="price">$14.99</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-6.jpg" alt="XL Bottle 6" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Chicken Rub</h3><div class="price">$12.00</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-7.jpg" alt="XL Bottle 7" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Tater Magic Seasoning</h3><div class="price">$14.95</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="xl-seasoning-8.jpg" alt="XL Bottle 8" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Chilli Seasoning All in One</h3><div class="price">$14.99</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
               </div>
             </div>
           </div>
 
           <div class="carousel-section" id="marinades-kits">
             <h2 class="carousel-title">Marinades and Rubs</h2>
-            <p class="carousel-subtext">5 slots</p>
+            <p class="carousel-subtext"></p>
             <div class="carousel-wrap">
               <div class="carousel">
-                <div class="product-card"><img src="marinade-1.jpg" alt="Marinade and Kit 1" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Southern Greek Marinade</h3><div class="price">$9.95</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="marinade-2.jpg" alt="Marinade and Kit 2" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Mild BBQ Sauce</h3><div class="price">$10.25</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="marinade-3.jpg" alt="Marinade and Kit 3" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Coffee Pecan BBQ Rub</h3><div class="price">$15.50</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="marinade-4.jpg" alt="Marinade and Kit 4" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Competition BBQ Rub</h3><div class="price">$14.99</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="marinade-5.jpg" alt="Marinade and Kit 5" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Chicken BBQ Rub</h3><div class="price">$12.00</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="marinade-1.jpg" alt="Marinade and Kit 1" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Southern Greek Marinade</h3><div class="price">$9.95</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="marinade-2.jpg" alt="Marinade and Kit 2" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Mild BBQ Sauce</h3><div class="price">$10.25</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="marinade-3.jpg" alt="Marinade and Kit 3" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Coffee Pecan BBQ Rub</h3><div class="price">$15.50</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="marinade-4.jpg" alt="Marinade and Kit 4" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Competition BBQ Rub</h3><div class="price">$14.99</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="marinade-5.jpg" alt="Marinade and Kit 5" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Chicken BBQ Rub</h3><div class="price">$12.00</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
               </div>
             </div>
           </div>
 
-          <div class="carousel-section" id="marinades-kits">
-            <h2 class="carousel-title">Marinades Kits </h2>
-            <p class="carousel-subtext">2 slots</p>
+          <div class="carousel-section" id="marinade-kits-only">
+            <h2 class="carousel-title">Marinades Kits</h2>
+            <p class="carousel-subtext"></p>
             <div class="carousel-wrap">
               <div class="carousel">
-                <div class="product-card"><img src="marinadekit-1.jpg" alt="Marinade and Kit 1" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Steak Kit</h3><div class="price">$19.50</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
-                <div class="product-card"><img src="marinadekit-2.jpg" alt="Marinade and Kit 2" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Chicken Kit</h3><div class="price">$35.00</div><p></p><a href="contact.html" class="btn">Order This Item</a></div></div>
+                <div class="product-card"><img src="marinadekit-1.jpg" alt="Marinade Kit 1" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Steak Kit</h3><div class="price">$19.50</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="marinadekit-2.jpg" alt="Marinade Kit 2" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Chicken Kit</h3><div class="price">$35.00</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
               </div>
             </div>
           </div>
 
           <div class="carousel-section" id="greek-pickles">
             <h2 class="carousel-title">Gourmet Greek Pickles</h2>
-            <p class="carousel-subtext">2 slots</p>
+            <p class="carousel-subtext"></p>
             <div class="carousel-wrap">
               <div class="carousel">
                 <div class="product-card">
@@ -975,7 +998,7 @@
                     <h3>Gourmet Spicy Pickles</h3>
                     <div class="price">$9.00</div>
                     <p></p>
-                    <a href="contact.html" class="btn">Order This Item</a>
+                    <a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
                   </div>
                 </div>
 
@@ -985,7 +1008,7 @@
                     <h3>Gourmet Greek Pickles</h3>
                     <div class="price">$9.00</div>
                     <p></p>
-                    <a href="contact.html" class="btn">Order This Item</a>
+                    <a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
                   </div>
                 </div>
               </div>
