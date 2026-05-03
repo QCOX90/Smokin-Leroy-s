@@ -373,6 +373,42 @@
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
+      position: relative;
+    }
+
+    .new-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 3;
+      background: linear-gradient(135deg, #ff3c00, #ffb347);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 2px solid #ffffff;
+      box-shadow:
+        0 6px 14px rgba(0,0,0,0.28),
+        0 0 18px rgba(255, 105, 0, 0.55);
+      animation: newBadgePulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes newBadgePulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow:
+          0 6px 14px rgba(0,0,0,0.28),
+          0 0 14px rgba(255, 105, 0, 0.45);
+      }
+      50% {
+        transform: scale(1.08);
+        box-shadow:
+          0 8px 18px rgba(0,0,0,0.34),
+          0 0 26px rgba(255, 105, 0, 0.75);
+      }
     }
 
     .product-image {
@@ -987,6 +1023,17 @@
                 <div class="carousel-wrap">
                   <div class="carousel">
                     <div class="product-card">
+                      <span class="new-badge">New</span>
+                      <img src="carolina-reaper-hot-sauce.png" alt="Carolina Reaper Hot Sauce" class="product-image hot-sauce-image" onerror="this.onerror=null;this.src='logo.png';">
+                      <div class="product-content">
+                        <h3>Carolina Reaper Hot Sauce</h3>
+                        <div class="price">$10.00</div>
+                        <p>Featured Smokin' LeRoy's Carolina Reaper Hot Sauce.</p>
+                        <a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
                       <img src="hotsauce-1.jpg" alt="Hat 1" class="product-image hot-sauce-image" onerror="this.onerror=null;this.src='logo.png';">
                       <div class="product-content">
                         <h3>Jalapeno Zing Sauce</h3>
@@ -1002,16 +1049,6 @@
                         <h3>LIL' KICK Hot Sauce</h3>
                         <div class="price">$9.00</div>
                         <p>Featured Smokin' LeRoy's Hot Sauce.</p>
-                        <a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
-                      </div>
-                    </div>
-
-                    <div class="product-card">
-                      <img src="carolina-reaper-hot-sauce.png" alt="Carolina Reaper Hot Sauce" class="product-image hot-sauce-image" onerror="this.onerror=null;this.src='logo.png';">
-                      <div class="product-content">
-                        <h3>Carolina Reaper Hot Sauce</h3>
-                        <div class="price">$9.00</div>
-                        <p>Featured Smokin' LeRoy's Carolina Reaper Hot Sauce.</p>
                         <a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
                       </div>
                     </div>
@@ -1046,6 +1083,9 @@
             <p class="carousel-subtext"></p>
             <div class="carousel-wrap">
               <div class="carousel">
+                <div class="product-card"><span class="new-badge">New</span><img src="xl-hickory-sea-salt.png" alt="Hickory Sea Salt Seasoning" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Hickory Sea Salt Seasoning</h3><div class="price">$15.00</div><p>Smokin' LeRoy's Salt Magic Hickory Sea Salt Seasoning.</p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><span class="new-badge">New</span><img src="xl-jalapeno-sea-salt.png" alt="Jalapeño Sea Salt Seasoning" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Jalapeño Sea Salt Seasoning</h3><div class="price">$15.00</div><p>Smokin' LeRoy's Salt Magic Jalapeño Sea Salt Seasoning.</p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><span class="new-badge">New</span><img src="xl-taco-magic.png" alt="Taco Magic Seasoning" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Taco Magic Seasoning</h3><div class="price">$15.00</div><p>Southern Greek Flavors Taco Magic Seasoning.</p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
                 <div class="product-card"><img src="xl-seasoning-9.jpg" alt="XL Bottle 1" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Cajun Garlic Butter Seasoning</h3><div class="price">$14.99</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
                 <div class="product-card"><img src="xl-seasoning-2.jpg" alt="XL Bottle 2" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Garlic Butter Seasoning</h3><div class="price">$14.99</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
                 <div class="product-card"><img src="xl-seasoning-3.jpg" alt="XL Bottle 3" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Steak Seasoning</h3><div class="price">$14.99</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
@@ -1054,9 +1094,6 @@
                 <div class="product-card"><img src="xl-seasoning-6.jpg" alt="XL Bottle 6" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Chicken Rub</h3><div class="price">$12.00</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
                 <div class="product-card"><img src="xl-seasoning-7.jpg" alt="XL Bottle 7" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Tater Magic Seasoning</h3><div class="price">$14.95</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
                 <div class="product-card"><img src="xl-seasoning-8.jpg" alt="XL Bottle 8" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Chilli Seasoning All in One</h3><div class="price">$14.99</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
-                <div class="product-card"><img src="xl-hickory-sea-salt.png" alt="Hickory Sea Salt Seasoning" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Hickory Sea Salt Seasoning</h3><div class="price">$14.99</div><p>Smokin' LeRoy's Salt Magic Hickory Sea Salt Seasoning.</p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
-                <div class="product-card"><img src="xl-jalapeno-sea-salt.png" alt="Jalapeño Sea Salt Seasoning" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Jalapeño Sea Salt Seasoning</h3><div class="price">$14.99</div><p>Smokin' LeRoy's Salt Magic Jalapeño Sea Salt Seasoning.</p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
-                <div class="product-card"><img src="xl-taco-magic.png" alt="Taco Magic Seasoning" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Taco Magic Seasoning</h3><div class="price">$14.99</div><p>Southern Greek Flavors Taco Magic Seasoning.</p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
               </div>
             </div>
           </div>
