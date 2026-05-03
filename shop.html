@@ -806,6 +806,78 @@
         font-size: 0.88rem;
       }
     }
+
+    /* SHOP QUICK JUMP BUTTONS */
+    .shop-jump-section {
+      padding: 0 0 18px;
+    }
+
+    .shop-jump-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+    }
+
+    .shop-jump-card::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .shop-jump-card::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.18);
+      border-radius: 999px;
+    }
+
+    .shop-jump-card a {
+      flex: 0 0 auto;
+      background: linear-gradient(135deg, #ff9a1f, #ff3c00);
+      color: #ffffff;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.18);
+      transition: all 0.22s ease;
+    }
+
+    .shop-jump-card a:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #ffb347, #ff2a00);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.24);
+    }
+
+    .carousel-section {
+      scroll-margin-top: 115px;
+    }
+
+    @media (max-width: 640px) {
+      .shop-jump-section {
+        padding: 0 0 14px;
+      }
+
+      .shop-jump-card {
+        border-radius: 22px;
+        padding: 10px;
+        gap: 8px;
+      }
+
+      .shop-jump-card a {
+        padding: 10px 15px;
+        font-size: 0.84rem;
+      }
+
+      .carousel-section {
+        scroll-margin-top: 145px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -837,7 +909,7 @@
             </p>
 
             <div class="hero-buttons">
-              <a href="#hats">Start Shopping</a>
+              <a href="#shop-quick-links">Start Shopping</a>
               <a href="index.html">Back to Home</a>
             </div>
           </div>
@@ -845,6 +917,20 @@
           <div class="hero-image-wrap">
             <img src="truck.jpg" alt="Smokin' LeRoy's food truck" class="hero-image">
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop-jump-section" id="shop-quick-links">
+      <div class="container">
+        <div class="shop-jump-card" aria-label="Shop category quick links">
+          <a href="#shirts">Shirts</a>
+          <a href="#hot-sauces">Hot Sauces</a>
+          <a href="#seasonings">Seasonings</a>
+          <a href="#xl-bottles">XL Bottles</a>
+          <a href="#marinades-kits">Marinades & Rubs</a>
+          <a href="#marinade-kits-only">Marinade Kits</a>
+          <a href="#greek-pickles">Greek Pickles</a>
         </div>
       </div>
     </section>
@@ -895,7 +981,7 @@
                 </div>
               </div>
 
-              <div class="carousel-section" id="hats">
+              <div class="carousel-section" id="hot-sauces">
                 <h2 class="carousel-title">Hot Sauces</h2>
                 <p class="carousel-subtext"></p>
                 <div class="carousel-wrap">
@@ -916,6 +1002,16 @@
                         <h3>LIL' KICK Hot Sauce</h3>
                         <div class="price">$9.00</div>
                         <p>Featured Smokin' LeRoy's Hot Sauce.</p>
+                        <a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <img src="carolina-reaper-hot-sauce.png" alt="Carolina Reaper Hot Sauce" class="product-image hot-sauce-image" onerror="this.onerror=null;this.src='logo.png';">
+                      <div class="product-content">
+                        <h3>Carolina Reaper Hot Sauce</h3>
+                        <div class="price">$9.00</div>
+                        <p>Featured Smokin' LeRoy's Carolina Reaper Hot Sauce.</p>
                         <a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
                       </div>
                     </div>
@@ -958,6 +1054,9 @@
                 <div class="product-card"><img src="xl-seasoning-6.jpg" alt="XL Bottle 6" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Perfect Chicken Rub</h3><div class="price">$12.00</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
                 <div class="product-card"><img src="xl-seasoning-7.jpg" alt="XL Bottle 7" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Gourmet Tater Magic Seasoning</h3><div class="price">$14.95</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
                 <div class="product-card"><img src="xl-seasoning-8.jpg" alt="XL Bottle 8" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Chilli Seasoning All in One</h3><div class="price">$14.99</div><p></p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="xl-hickory-sea-salt.png" alt="Hickory Sea Salt Seasoning" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Hickory Sea Salt Seasoning</h3><div class="price">$14.99</div><p>Smokin' LeRoy's Salt Magic Hickory Sea Salt Seasoning.</p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="xl-jalapeno-sea-salt.png" alt="Jalapeño Sea Salt Seasoning" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Jalapeño Sea Salt Seasoning</h3><div class="price">$14.99</div><p>Smokin' LeRoy's Salt Magic Jalapeño Sea Salt Seasoning.</p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
+                <div class="product-card"><img src="xl-taco-magic.png" alt="Taco Magic Seasoning" class="product-image" onerror="this.onerror=null;this.src='logo.png';"><div class="product-content"><h3>Taco Magic Seasoning</h3><div class="price">$14.99</div><p>Southern Greek Flavors Taco Magic Seasoning.</p><a href="https://www.southerngreekflavors.com/southern-greek-pages" class="btn" target="_blank" rel="noopener noreferrer">Buy Now</a></div></div>
               </div>
             </div>
           </div>
