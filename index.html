@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smokin' LeRoy's Mobile Kitchen LLC</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap');
+
+    :root {
+      --red: #c81d25;
+      --orange: #f77f00;
+      --orange-2: #ff9a1f;
+      --yellow: #fcbf49;
+      --dark: #161616;
+      --graphite: #2f3237;
+      --light: #fffaf2;
+      --white: #ffffff;
+      --muted: #5f5f5f;
+      --border: rgba(0,0,0,0.10);
+      --shadow: 0 16px 34px rgba(0,0,0,0.12);
+      --radius: 24px;
+      --max: 1160px;
+      --gold-line: #eed3a0;
+      --cream-card: #fff9ef;
+      --soft-bg: #f8f8f8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: linear-gradient(180deg, #fff7eb 0%, #fff1cf 100%);
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 0;
+      color: white;
+      overflow: hidden;
+      border-bottom: 2px solid var(--orange);
+      background: #000000;
+      box-shadow:
+        0 10px 24px rgba(0,0,0,0.28),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .nav {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 78px;
+      min-height: 78px;
+      overflow: visible;
+      z-index: 2;
+    }
+
+    .brand {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 3;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .nav-brand-logo {
+      height: 85px;
+      width: auto;
+      max-width: none;
+      object-fit: contain;
+      display: block;
+      pointer-events: none;
+      filter:
+        drop-shadow(0 0 6px rgba(255, 140, 0, 0.45))
+        drop-shadow(0 0 14px rgba(255, 80, 0, 0.30));
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,140,0,0.6), transparent 70%);
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      opacity: 1;
+    }
+
+    .nav-left {
+      justify-content: flex-end;
+    }
+
+    .nav-right {
+      justify-content: flex-end;
+      margin-left: auto;
+      padding-right: 2px;
+      gap: 12px;
+    }
+
+    .nav-links a {
+      background: linear-gradient(135deg, #ff9a1f, #ff3c00);
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      line-height: 1;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      position: relative;
+      z-index: 4;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .nav-links a:hover {
+      background: linear-gradient(135deg, #ffb347, #ff2a00);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+    }
+
+    .hero {
+      padding: 18px 0 22px;
+    }
+
+    .hero-card {
+      background: var(--soft-bg);
+      border-radius: 26px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gold-line);
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(420px, 0.92fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .hero-copy {
+      text-align: center;
+      padding: 2px 8px 0;
+    }
+
+    .hero-logo {
+      width: 520px;
+      max-width: 96%;
+      margin: 0 auto 10px;
+      opacity: 0;
+      transform: translateY(26px) scale(1.25);
+      transform-origin: center center;
+      animation: logoReveal 0.9s ease-out 0.15s forwards;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-family: "DM Serif Display", Georgia, serif;
+      font-size: clamp(2.15rem, 4.2vw, 3.05rem);
+      line-height: 1;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 2.5vw, 2.05rem);
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+      font-weight: 800;
+    }
+
+    .hero p,
+    .owner-copy p,
+    .shop-intro p,
+    .card p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.72;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 590px;
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+      justify-content: center;
+    }
+
+    .socials a,
+    .hero-buttons a,
+    .section-button,
+    .product-card .btn {
+      border-radius: 999px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      text-align: center;
+    }
+
+    .socials a {
+      width: 54px;
+      height: 54px;
+      min-width: 54px;
+      padding: 0;
+      background: #111111;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    .socials a svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+      fill: currentColor;
+    }
+
+    .socials a:hover,
+    .hero-buttons a:hover,
+    .section-button:hover,
+    .product-card .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+      justify-content: center;
+    }
+
+    .hero-buttons a,
+    .section-button {
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      color: white;
+      padding: 13px 20px;
+      border: none;
+    }
+
+    .hero-buttons a {
+      width: auto;
+      min-width: 180px;
+    }
+
+    .hero-right {
+      display: grid;
+      gap: 10px;
+      align-self: start;
+    }
+
+    .hero-image-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+      border: 1px solid var(--gold-line);
+      background: #f5f5f5;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      max-height: 360px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-contact-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .hero-contact-item {
+      background: var(--cream-card);
+      border: 1px solid var(--gold-line);
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-weight: 700;
+      line-height: 1.45;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 58px;
+    }
+
+    .hero-contact-item span:last-child {
+      font-size: 0.98rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-contact-icon {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ffdf87, #f7b733);
+      color: #2b1a00;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+
+    .hero-contact-icon svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+      fill: currentColor;
+    }
+
+.hero-bottom {
+  margin-top: 90px;
+  width: 100%;
+}
+
+    .section {
+      padding: 18px 0;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .today-box {
+      margin-top: 8px;
+    }
+
+    .today-status {
+      background: linear-gradient(90deg, #fff3db, #fff8ee);
+      border: 1px solid #edd3a1;
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 16px;
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .week-glance-title {
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .schedule-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 0;
+    }
+
+    .day-row {
+      display: grid;
+      grid-template-columns: 160px 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid #eee3cf;
+      background: #fffaf2;
+    }
+
+    .day-row.today {
+      border: 2px solid var(--orange);
+      background: #fff1dd;
+    }
+
+    .day-name {
+      font-weight: 800;
+    }
+
+    .closed {
+      color: #a02727;
+      font-weight: 700;
+    }
+
+    iframe {
+      width: 100%;
+      height: 380px;
+      border: 0;
+      border-radius: 18px;
+      margin-top: 18px;
+      background: #f3f3f3;
+    }
+
+    .shop-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .shop-intro p {
+      margin: 0;
+      max-width: 700px;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .product-card {
+      background: #fff9ef;
+      border: 1px solid #eedfc5;
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 300px;
+      object-fit: contain;
+      object-position: center top;
+      background: #f1f1f1;
+      padding: 12px;
+    }
+
+    .product-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .product-content p {
+      margin: 0;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--red);
+    }
+
+    .product-card .btn {
+      background: var(--dark);
+      color: white;
+      margin-top: auto;
+      text-align: center;
+      padding: 12px 18px;
+    }
+
+    .sheet-note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      background: #fff9ef;
+      border: 1px solid #eedfc5;
+      border-radius: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .code-inline {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 8px;
+      background: #fff1dd;
+      border: 1px solid #efd4a2;
+      font-weight: 700;
+      color: #7c4300;
+    }
+
+    .owner-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .owner-image {
+      width: 100%;
+      border-radius: 22px;
+      object-fit: cover;
+      min-height: 420px;
+      max-height: 560px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+      border: 1px solid #ddd;
+    }
+
+    .footer {
+      padding: 42px 0;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    @keyframes logoReveal {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(1.1);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(26px) scale(1.25);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-top,
+      .owner-grid,
+      .shop-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        max-height: none;
+      }
+
+      .owner-image {
+        min-height: 280px;
+      }
+
+      .day-row {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        height: auto;
+        min-height: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px 0 8px;
+      }
+
+      .brand {
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+      }
+
+      .nav-left,
+      .nav-right {
+        justify-content: center;
+        margin-left: 0;
+        padding-right: 0;
+      }
+
+      .nav-brand-logo {
+        height: 70px;
+      }
+
+      .hero-left {
+        display: block;
+      }
+
+      .hero-logo {
+        width: 430px;
+        max-width: 96%;
+        transform: scale(1.1);
+        transform-origin: center center;
+      }
+
+      .hero-right {
+        max-width: 720px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        padding: 0;
+      }
+
+      .nav {
+        height: auto;
+        min-height: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px 0 8px;
+      }
+
+      .brand {
+        width: 100%;
+        justify-content: center;
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+      }
+
+      .nav-brand-logo {
+        height: 62px;
+      }
+
+      .nav-left,
+      .nav-right,
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+        margin-left: 0;
+        padding-right: 0;
+      }
+
+      .nav-links a {
+        padding: 10px 16px;
+        font-size: 0.88rem;
+      }
+
+      .hero-card,
+      .card {
+        padding: 18px;
+      }
+
+      .hero-logo {
+        width: 340px;
+        max-width: 90%;
+        transform: none;
+        margin-bottom: 18px;
+      }
+      
+      .hero-bottom {
+  margin-top: 90px;
+}
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .hero-buttons a,
+      .section-button {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .product-image {
+        height: 240px;
+      }
+
+      .socials a {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <img src="nav-logo.png" alt="Smokin' LeRoy's Mobile Kitchen LLC" class="nav-brand-logo">
+      </div>
+
+      <nav class="nav-links nav-right">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-top">
+            <div class="hero-left">
+              <div class="hero-copy">
+                <img src="logo.png" alt="Smokin' LeRoy's Mobile Kitchen LLC Logo" class="hero-logo">
+              </div>
+
+              <div class="hero-bottom">
+                <div class="hero-copy">
+                  <h1>Fresh food on the move.</h1>
+                  <p>
+                    Welcome to Smokin' LeRoy's Mobile Kitchen LLC. We serve flavorful breakfast and lunch
+                    favorites with a bold smoked style, and we bring the food truck experience to local
+                    communities, events, and catering opportunities.
+                  </p>
+
+                  <div class="hero-buttons">
+                    <a href="menu.html">View Our Menu</a>
+                    <a href="shop.html">Shop Our Products</a>
+                    <a href="#scheduleSection">View Today's Location</a>
+                  </div>
+
+                  <div class="socials">
+                    <a href="https://www.facebook.com/share/17WKYagXq9/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M13.5 21v-7.2h2.42l.36-2.8H13.5V9.21c0-.81.23-1.36 1.39-1.36h1.48V5.34c-.26-.03-1.14-.09-2.17-.09-2.14 0-3.61 1.31-3.61 3.72V11H8.16v2.8h2.43V21h2.91Z"/>
+                      </svg>
+                    </a>
+
+                    <a href="https://www.instagram.com/smoking_leroys?igsh=MXQ5eXBuZjk3Y3ptcw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 1.5a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h9a3 3 0 0 0 3-3v-9a3 3 0 0 0-3-3h-9Zm9.75 1.13a1.12 1.12 0 1 1 0 2.24 1.12 1.12 0 0 1 0-2.24ZM12 7.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 1.5A3 3 0 1 0 15 12 3 3 0 0 0 12 9Z"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-right">
+              <div class="hero-image-wrap">
+                <img src="truck.jpg" alt="Smokin' LeRoy's food truck" class="hero-image">
+              </div>
+
+              <div class="hero-contact-list">
+                <div class="hero-contact-item">
+                  <span class="hero-contact-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1.5 1.5 0 0 1 1.53-.36c1.08.36 2.24.55 3.43.55A1.5 1.5 0 0 1 21.87 17v3.37A1.5 1.5 0 0 1 20.37 21.87C10.93 21.87 2.13 13.07 2.13 3.63A1.5 1.5 0 0 1 3.63 2.13H7A1.5 1.5 0 0 1 8.5 3.63c0 1.19.19 2.35.55 3.43a1.5 1.5 0 0 1-.36 1.53l-2.07 2.2Z"/>
+                    </svg>
+                  </span>
+                  <span>Call Us: <a href="tel:19013170481">901-317-0481</a></span>
+                </div>
+
+                <div class="hero-contact-item">
+                  <span class="hero-contact-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M3 5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25v13.5A2.25 2.25 0 0 1 18.75 21H5.25A2.25 2.25 0 0 1 3 18.75V5.25Zm2.2-.75L12 9.44l6.8-4.94H5.2Zm14.3 2.07-7.06 5.13a.75.75 0 0 1-.88 0L4.5 6.57v12.18a.75.75 0 0 0 .75.75h13.5a.75.75 0 0 0 .75-.75V6.57Z"/>
+                    </svg>
+                  </span>
+                  <span>Email: <a href="mailto:smokingleroys@gmail.com">smokingleroys@gmail.com</a></span>
+                </div>
+
+                <div class="hero-contact-item">
+                  <span class="hero-contact-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 2.25a6.75 6.75 0 0 1 6.75 6.75c0 4.84-5.05 10.84-6.22 12.18a.75.75 0 0 1-1.06 0C10.3 19.84 5.25 13.84 5.25 9A6.75 6.75 0 0 1 12 2.25Zm0 9a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z"/>
+                    </svg>
+                  </span>
+                  <span>Serving Memphis and Surrounding Areas</span>
+                </div>
+
+                <div class="hero-contact-item">
+                  <span class="hero-contact-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 1.5A10.5 10.5 0 1 0 22.5 12 10.51 10.51 0 0 0 12 1.5Zm.75 5.25v4.94l3.56 2.11-.75 1.23-4.31-2.55V6.75Z"/>
+                    </svg>
+                  </span>
+                  <span>Check our schedule below to find us!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <div class="shop-intro">
+            <div>
+              <h2>Shop Smokin' LeRoy's</h2>
+              <p>
+                Browse official Smokin' LeRoy's apparel. Visit the full shop page for shirts, hot sauces, seasonings, XL bottles, marinades, kits, and more.
+              </p>
+            </div>
+            <a href="shop.html" class="section-button">Visit Full Shop</a>
+          </div>
+
+          <div class="shop-grid">
+            <div class="product-card">
+              <img src="shirt-spice-buttercup.jpg" alt="Smokin' LeRoy's Let Us Spice You Up Buttercup Shirt" class="product-image">
+              <div class="product-content">
+                <h3>Let Us Spice You Up Buttercup Shirt</h3>
+                <div class="price">$30.00</div>
+                <p>New black pocket tee featuring the bold spice-and-pig graphic with the Smokin' LeRoy's pocket logo.</p>
+                <a href="shop.html#shirts" class="btn">Shop Apparel</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <img src="shirt-fire-smoke.jpg" alt="Smokin' LeRoy's Fueled by Fire and Smoke Shirt" class="product-image">
+              <div class="product-content">
+                <h3>Fueled by Fire &amp; Smoke Shirt</h3>
+                <div class="price">$30.00</div>
+                <p>New black pocket tee with the Fueled by Fire &amp; Smoke Memphis design and Smokin' LeRoy's pocket logo.</p>
+                <a href="shop.html#shirts" class="btn">Shop Apparel</a>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <img src="shirt-i-love-smokin-leroys.jpg" alt="I Love Smokin' LeRoy's Shirt" class="product-image">
+              <div class="product-content">
+                <h3>I Love Smokin' LeRoy's Shirt</h3>
+                <div class="price">$30.00</div>
+                <p>New black pocket tee featuring the I Love Smokin' LeRoy's Memphis artwork and matching pocket logo.</p>
+                <a href="shop.html#shirts" class="btn">Shop Apparel</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="scheduleSection">
+      <div class="container">
+        <div class="card today-box">
+          <h2>Where Are We Today?</h2>
+          <p>
+            Check today's location below. If there is no location posted for the day, it will show closed.
+          </p>
+
+          <div class="today-status" id="todayStatus">
+            Loading today’s location...
+          </div>
+
+          <div class="week-glance-title">Week at a Glance</div>
+          <div class="schedule-grid" id="scheduleGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <h2>Today's Map</h2>
+          <p>
+            This map updates automatically from the current day’s address.
+          </p>
+          <iframe
+            id="locationMap"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Memphis%2C%20TN&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <div class="owner-grid">
+            <div>
+              <img src="owner.jpg" alt="Owner of Smokin' LeRoy's Mobile Kitchen LLC" class="owner-image">
+            </div>
+
+            <div class="owner-copy">
+              <h2>Meet the Owner</h2>
+              <p>
+                Smokin' LeRoy's Mobile Kitchen LLC is built around great food, strong service,
+                and showing up for the community. From breakfast and lunch favorites to special
+                events and catering, the goal is simple: serve quality food and make every stop
+                worth the visit.
+              </p>
+              <p>
+                Whether you are stopping by the truck for lunch or booking an event, Smokin' LeRoy's
+                focuses on flavor, consistency, and a welcoming experience people remember.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Smokin' LeRoy's Mobile Kitchen LLC
+    </div>
+  </footer>
+
+  <script>
+    /*
+      GOOGLE SHEETS SETUP
+
+      Your Google Sheet should have exactly these columns:
+      Day | Address | Hours
+
+      Example:
+      Sunday |  |
+      Monday | 123 Main St, Memphis, TN | 11:00 AM - 3:00 PM
+      Tuesday | 456 Poplar Ave, Memphis, TN | 11:00 AM - 3:00 PM
+
+      Then connect a public JSON endpoint and paste it into SHEET_API_URL below.
+
+      If SHEET_API_URL is blank, the site uses the fallback demo schedule.
+    */
+
+    const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbxSjJZLiAE7kLsDc1uirIcr--girBmbQtVYXGMk5gaqb26dJ1PIuxF1i1zNYNu-MbPuKA/exec";
+
+    const fallbackSchedule = [
+      { day: "Sunday", address: "", hours: "" },
+      { day: "Monday", address: "123 Main St, Memphis, TN", hours: "11:00 AM - 3:00 PM" },
+      { day: "Tuesday", address: "456 Poplar Ave, Memphis, TN", hours: "11:00 AM - 3:00 PM" },
+      { day: "Wednesday", address: "789 Beale St, Memphis, TN", hours: "10:00 AM - 2:00 PM" },
+      { day: "Thursday", address: "", hours: "" },
+      { day: "Friday", address: "101 Event Plaza, Memphis, TN", hours: "5:00 PM - 9:00 PM" },
+      { day: "Saturday", address: "222 Festival Way, Memphis, TN", hours: "12:00 PM - 6:00 PM" }
+    ];
+
+    const orderedDays = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+
+    async function getScheduleData() {
+      if (!SHEET_API_URL.trim()) return fallbackSchedule;
+
+      try {
+        const response = await fetch(SHEET_API_URL, {
+          method: "GET",
+          cache: "no-store"
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch sheet data");
+        }
+
+        const data = await response.json();
+
+        if (!Array.isArray(data)) {
+          throw new Error("Sheet data format is not an array");
+        }
+
+        return data;
+      } catch (error) {
+        console.error("Using fallback schedule because API failed:", error);
+        return fallbackSchedule;
+      }
+    }
+
+    function normalizeText(value) {
+      return String(value || "").trim();
+    }
+
+    function normalizeSchedule(data) {
+      const map = new Map();
+
+      data.forEach(item => {
+        const cleaned = {};
+
+        Object.keys(item).forEach(key => {
+          cleaned[key.trim().toLowerCase()] = item[key];
+        });
+
+        const day = normalizeText(cleaned.day);
+        const address = normalizeText(cleaned.address);
+        const hours = normalizeText(cleaned.hours);
+
+        if (day) {
+          map.set(day, { day, address, hours });
+        }
+      });
+
+      return orderedDays.map(day => map.get(day) || { day, address: "", hours: "" });
+    }
+
+    function getTodayName() {
+      return orderedDays[new Date().getDay()];
+    }
+
+    function renderToday(todayItem) {
+      const todayStatus = document.getElementById("todayStatus");
+      const mapFrame = document.getElementById("locationMap");
+
+      if (!todayItem.address && !todayItem.hours) {
+        todayStatus.innerHTML = `
+          <strong>${todayItem.day}</strong><br>
+          Closed for the day
+        `;
+        mapFrame.src = "https://www.google.com/maps?q=Memphis%2C%20TN&output=embed";
+        return;
+      }
+
+      todayStatus.innerHTML = `
+        <strong>${todayItem.day}</strong><br>
+        Address: ${todayItem.address || "Not listed"}<br>
+        Hours of operation: ${todayItem.hours || "Not listed"}
+      `;
+
+      const mapAddress = encodeURIComponent(todayItem.address || "Memphis, TN");
+      mapFrame.src = `https://www.google.com/maps?q=${mapAddress}&output=embed`;
+    }
+
+    function renderSchedule(schedule) {
+      const grid = document.getElementById("scheduleGrid");
+      const todayName = getTodayName();
+
+      if (!grid) return;
+
+      grid.innerHTML = "";
+
+      schedule.forEach(item => {
+        const isClosed = !item.address && !item.hours;
+        const row = document.createElement("div");
+        row.className = "day-row" + (item.day === todayName ? " today" : "");
+
+        row.innerHTML = `
+          <div class="day-name">${item.day}${item.day === todayName ? " • Today" : ""}</div>
+          <div>${isClosed ? '<span class="closed">Closed for the day</span>' : `<strong>Address:</strong> ${item.address || "Not listed"}`}</div>
+          <div>${isClosed ? "" : `<strong>Hours of operation:</strong> ${item.hours || "Not listed"}`}</div>
+        `;
+
+        grid.appendChild(row);
+      });
+    }
+
+    async function init() {
+      const rawData = await getScheduleData();
+      const schedule = normalizeSchedule(rawData);
+      const todayName = getTodayName();
+      const todayItem = schedule.find(item => item.day === todayName) || schedule[0];
+
+      renderToday(todayItem);
+      renderSchedule(schedule);
+    }
+
+    init();
+  </script>
+</body>
+</html>
